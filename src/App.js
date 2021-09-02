@@ -1,4 +1,4 @@
-import './App.css'
+import './style/App.css'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Register from './Pages/Register/Register'
 import { ToastContainer, toast } from 'react-toastify'
