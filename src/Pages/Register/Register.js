@@ -1,6 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, setUser } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
+import api from './../../services/api'
+import './Style.css'
 
 function Register() {
   const { handleSubmit, register, errors } = useForm()
@@ -8,28 +10,47 @@ function Register() {
   const [result, setResult] = useState('')
   const onSubmit = data => setResult(JSON.stringify(data))
 
-  const message = () =>
-    toast.success('Success Notification !', {
-      position: toast.POSITION.BOTTOM_RIGHT
-    })
+  const save = () => {
+    api
+      .post('/users')
+      .then(response => {
+        toast.success('Cadastro efetuado com sucesso', {
+          position: toast.POSITION.BOTTOM_RIGHT
+        })
+      })
+      .catch(err => {
+        toast.warn('Erro ao cadastrar', {
+          position: toast.POSITION.BOTTOM_RIGHT
+        })
+      })
+  }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register('name')} placeholder="Nome" />
-        <input {...register('email')} placeholder="E-mail" />
-        <select {...register('unity')}>
-          <option value="">Select...</option>
-          <option value="A">Category A</option>
-          <option value="B">Category B</option>
-        </select>
+    <div className="center">
+      <div className="container">
+        <h1>Cadastro de empresa</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="text"
+            placeholder="username"
+            {...register('username', { required: true, min: 4 })}
+          />
 
-        <p>{result}</p>
+          <input
+            {...register('email', { required: true })}
+            placeholder="E-mail"
+          />
 
-        <input type="submit" />
-      </form>
-      <button onClick={message}>Notify !</button>
-      <ToastContainer />
+          <input
+            {...register('password', { required: true })}
+            placeholder="Senha"
+          />
+
+          <input type="submit" onClick={save} />
+        </form>
+        <button>Notify !</button>
+        <ToastContainer />
+      </div>
     </div>
   )
 }
