@@ -9,7 +9,7 @@ import Register from './Pages/Register/Register';
 
 
 // Importing style-sheets:
-import './App.css';
+import './style/App.css';
 import './style/global-style.css';
 
 
