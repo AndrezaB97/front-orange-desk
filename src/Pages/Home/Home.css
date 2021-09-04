@@ -1,0 +1,21 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+
+    margin: auto;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.container header {
+    font-size: 2rem;
+}
+
+.container main {
+    margin: 2rem auto;
+}
