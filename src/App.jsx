@@ -17,7 +17,6 @@ function App() {
   return (
 
     <Router>
-
       <Switch>
         <Route path='/' exact component={ Home } />
         <Route path="/adm" exact component={ Register } />
