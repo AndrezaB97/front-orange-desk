@@ -1,13 +1,14 @@
 import React from 'react';
 
 import '../../style/global-style.css';
-import './LoginButton.css';
+import './LoginAreaButton.css';
 
-const LoginButton = ({ children }) => {
+const LoginButton = () => {
     return ( 
 
         <button className='login-button'>
-            <span>{ children }</span>
+            <div className="login-img"></div>
+            <span className='login-state'></span>
         </button>
 
      );
