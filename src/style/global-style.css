@@ -8,6 +8,14 @@
 
 html {
     font-size: 62.5%;
+
+    /* Global color variables */
+
+    --white: #ffffff;
+    --light-grey: #c3c3c3;
+    --dark-grey: #414141;
+    --marine-blue: #1A0D2E;
+
 }
 
 .sr-only {
