@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Importing Pages:
 import Home from './Pages/Home/Home';
 import Register from './Pages/Register/Register';
+import Office from  './Pages/Office/Office';
 
 // Importing Components:
 
@@ -15,6 +16,7 @@ import './style/global-style.css';
 
 function App() {
   return (
+<<<<<<< HEAD
 
     <Router>
       <Switch>
@@ -23,6 +25,21 @@ function App() {
       </Switch>
       
     </Router>
+=======
+    <div className="App">
+
+      <Router>
+
+        <Switch>
+          <Route path='/' exact component={ Home } />
+          <Route path="/adm" exact component={ Register } />
+          <Route path="/office" exact component={ Office } />
+        </Switch>
+        
+      </Router>
+    
+    </div>
+>>>>>>> bac675f9f41fc2bebc7c4bcfa41e6336716435a6
 
   )
 }
