@@ -1,8 +1,13 @@
+// Importing modules:
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import LoginButton from '../../Components/LoginButton/LoginButton';
+// Importing components:
+import Logo from '../../Components/Logo/Logo';
+import LoginAreaButton from '../../Components/LoginAreaButton/LoginAreaButton';
+import GeneralButton from '../../Components/GeneralButton/GeneralButton';
 
+// Importing style-sheets:
 import '../../style/global-style.css';
 import './Home.css';
 
@@ -10,24 +15,32 @@ const Home = () => {
 
     return ( 
 
-        <div className='container'>
-        
+        <>
             <header>
-                <h1>Orange Desk</h1>
-                <h2>FCamara</h2>
+                <nav>
+                    <div className="nav-container">
+                        <Link to='/'> <Logo/> </Link>
+                    </div>
+
+                    <div className="nav-container">
+                        <Link to='/adm'> <LoginAreaButton/> </Link>
+                    </div>
+                </nav>
             </header>
 
             <main>
-                <Link to='/adm'>
-                    <LoginButton>Sou ADM</LoginButton>
-                </Link>
-                
-                <Link to='/consultor'>
-                    <LoginButton>Sou consultor</LoginButton>
-                </Link>
-            </main>
+                <div className="img-container"></div>
+                <div className="main-description">
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation 
+                </div>
 
-        </div>
+                <div className="btn-container">
+                    <Link to='/office'>
+                        <GeneralButton>Button</GeneralButton>
+                    </Link>
+                </div>
+            </main>
+        </>
 
      );
 }
