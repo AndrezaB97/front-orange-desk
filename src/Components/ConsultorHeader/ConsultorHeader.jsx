@@ -1,18 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { GrPrevious } from 'react-icons/gr'
 
 import Logo from '.././Logo/Logo';
-import StepBar from '.././StepBar/StepBar';
-
 import { Header } from './ConsultorHeaderStyle';
 
-const ConsultorHeader = () => {
+const ConsultorHeader = ({currentStep, stepLabel}) => {
+
+    const history = useHistory();
+
     return ( 
 
         <>
             <Header>
                 <Link to='/'> <Logo/> </Link>
-                <StepBar></StepBar>
+                
+                <nav className="step-bar-container">
+
+                    <button onClick={ () => history.goBack() } className={`previous-btn`}> <GrPrevious/> </button>
+                    <div className="step-container">
+                        <div className="step">{ `${currentStep}. ${stepLabel}` }</div>
+                    </div>
+                </nav>
             </Header>
         </>
 

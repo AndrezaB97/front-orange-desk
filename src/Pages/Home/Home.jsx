@@ -13,6 +13,8 @@ import { Header, Main } from './HomeStyle';
 
 const Home = () => {
 
+    
+
     return ( 
 
         <>
