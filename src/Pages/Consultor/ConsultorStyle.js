@@ -52,6 +52,7 @@ export const Main = styled.main`
             border-radius: .8rem;
 
             color: var(--white);
+            cursor: pointer;
 
             .adress {
                 h1{
