@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Importing Pages:
 import Home from './Pages/Home/Home';
 import Register from './Pages/Register/Register';
-import Office from  './Pages/Office/Office';
+import Consultor from  './Pages/Consultor/Consultor';
 
 // Importing Components:
 
@@ -33,7 +33,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={ Home } />
           <Route path="/adm" exact component={ Register } />
-          <Route path="/office" exact component={ Office } />
+          <Route path="/consultor" exact component={ Consultor } />
         </Switch>
         
       </Router>
@@ -44,4 +44,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
