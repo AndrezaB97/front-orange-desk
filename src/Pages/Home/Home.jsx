@@ -23,7 +23,7 @@ const Home = () => {
                     </div>
 
                     <div className="nav-container">
-                        <Link to='/adm'> <LoginAreaButton/> </Link>
+                        <Link to='/register'> <LoginAreaButton/> </Link>
                     </div>
                 </nav>
             </header>
