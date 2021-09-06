@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Importing Pages:
 import Home from './Pages/Home/Home';
 import Register from './Pages/Register/Register';
-import Office from  './Pages/Office/Office';
+// import Office from  './Pages/Office/Office';
 
 // Importing Components:
 
@@ -22,8 +22,8 @@ function App() {
 
         <Switch>
           <Route path='/' exact component={ Home } />
-          <Route path="/adm" exact component={ Register } />
-          <Route path="/office" exact component={ Office } />
+          <Route path="/register" exact component={ Register } />
+          {/* <Route path="/office" exact component={ Office } /> */}
         </Switch>
         
       </Router>
