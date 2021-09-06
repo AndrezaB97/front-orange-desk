@@ -11,6 +11,7 @@ html {
 
     /* Global color variables */
 
+    --black: #000;
     --white: #ffffff;
     --light-grey: #c3c3c3;
     --dark-grey: #414141;
