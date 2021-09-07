@@ -14,9 +14,9 @@ const Input = ({ type, placeholder, name }) => {
             <input type={!toggle ? type : 'text'} placeholder={placeholder} {...name} />
             {type === 'password' && (
                 toggle ?
-                    <IoMdEye size='2.5rem' color='#414141' cursor='pointer' onClick={() => setToggle(false)} />
+                    <IoMdEye size='2.5rem' color='#000' opacity='60%' cursor='pointer' onClick={() => setToggle(false)} />
                     :
-                    <IoMdEyeOff size='2.5rem' color='#414141' cursor='pointer' onClick={() => setToggle(true)} />
+                    <IoMdEyeOff size='2.5rem' color='#000' opacity='60%' cursor='pointer' onClick={() => setToggle(true)} />
                 )
             }
         </div>
