@@ -1,12 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-import { Teste } from './StepBarStyle';
+const StepBar = ({step}) => {
 
-const StepBar = () => {
+  useEffect(() => {
+
+    document.querySelectorAll('.step').forEach((element => {
+
+      element.id === step ? element.className = 'step-active' : element.className = 'step-disabled';
+
+    }))
+    
+  }, []);
 
   return (
-    
-  <Teste></Teste>
+
+    <div className='d-flex flex-row justify-content-center align-items-center'>
+      <div id='office' className='step'></div>
+      <div id='date' className='step'></div>
+      <div id='desk' className='step'></div>
+      <div id='login' className='step'></div>
+    </div>
 
   );
 };
