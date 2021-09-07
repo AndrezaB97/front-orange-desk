@@ -1,10 +1,8 @@
 import React, { useEffect, useState, setUser } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
-import api from '../../services/api'
-import './Register.css'
-import InputText from '../../Components/FormInputText/InputText'
-import InputSubmit from '../../Components/FormInputSubmit/InputSubmit'
+import api from './../../services/api'
+import './Style.css'
 
 function Register() {
   const { handleSubmit, register, errors } = useForm()
@@ -12,33 +10,43 @@ function Register() {
   const [result, setResult] = useState('')
   const onSubmit = data => setResult(JSON.stringify(data))
 
-  const show = useEffect(() => {
-    console.log(result)
-  }, [result])
-
-  const save = async () => {
-    try {
-      await api.post('/users', result)
-      toast.success('Cadastro efetuado com sucesso', {
-        position: toast.POSITION.BOTTOM_RIGHT
+  const save = () => {
+    api
+      .post('/users')
+      .then(response => {
+        toast.success('Cadastro efetuado com sucesso', {
+          position: toast.POSITION.BOTTOM_RIGHT
+        })
       })
-    }
-    catch {
-      toast.warn('Erro ao cadastrar', {
-        position: toast.POSITION.BOTTOM_RIGHT
+      .catch(err => {
+        toast.warn('Erro ao cadastrar', {
+          position: toast.POSITION.BOTTOM_RIGHT
+        })
       })
-    }
   }
 
   return (
     <div className="center">
       <div className="container">
-        <h1>Cadastro Novo Usuário</h1>
+        <h1>Cadastro de empresa</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <InputText placeholder='Nome' name={register('name')} />
-          <InputText placeholder='Email' name={register('email')} />
-          <InputText placeholder='Senha' name={register('password')} />
-          <InputSubmit event={save} />
+          <input
+            type="text"
+            placeholder="username"
+            {...register('username', { required: true, min: 4 })}
+          />
+
+          <input
+            {...register('email', { required: true })}
+            placeholder="E-mail"
+          />
+
+          <input
+            {...register('password', { required: true })}
+            placeholder="Senha"
+          />
+
+          <input type="submit" onClick={save} />
         </form>
         <button>Notify !</button>
         <ToastContainer />

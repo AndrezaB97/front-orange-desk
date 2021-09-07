@@ -9,37 +9,44 @@ import GeneralButton from '../../Components/GeneralButton/GeneralButton';
 
 // Importing style-sheets:
 import '../../style/global-style.css';
-import './Home.css';
+import { Header, Main } from './HomeStyle';
 
 const Home = () => {
+
+    
 
     return ( 
 
         <>
-            <header>
+            <Header>
                 <nav>
-                    <div className="nav-container">
+                    <div className="logo-container">
                         <Link to='/'> <Logo/> </Link>
                     </div>
 
+<<<<<<< HEAD
                     <div className="nav-container">
                         <Link to='/register'> <LoginAreaButton/> </Link>
+=======
+                    <div className="login-container">
+                        <Link to='/adm'> <LoginAreaButton/> </Link>
+>>>>>>> master
                     </div>
                 </nav>
-            </header>
+            </Header>
 
-            <main>
+            <Main>
                 <div className="img-container"></div>
                 <div className="main-description">
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation 
+                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation 
                 </div>
 
                 <div className="btn-container">
-                    <Link to='/office'>
+                    <Link to='/consultor'>
                         <GeneralButton>Button</GeneralButton>
                     </Link>
                 </div>
-            </main>
+            </Main>
         </>
 
      );

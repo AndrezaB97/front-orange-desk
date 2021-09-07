@@ -6,7 +6,7 @@ import './Logo.css';
 const Logo = () => {
     return ( 
 
-        <div className="logo-container"></div>
+        <div className="logo"></div>
 
      );
 }
