@@ -1,8 +1,22 @@
+// Importing modules:
 import React, { useEffect, useState, setUser } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
-import api from './../../services/api'
-import './Style.css'
+import { Link } from 'react-router-dom';
+
+
+// Importing services:
+import api from '../../services/api'
+
+// Import components:
+import Input from '../../Components/FormInput/Input'
+import InputSubmit from '../../Components/FormInputSubmit/InputSubmit'
+import Logo from '../../Components/Logo/Logo'
+
+// Importing style-sheets:
+import '../../style/global-style.css';
+import './Register.css'
+
 
 function Register() {
   const { handleSubmit, register, errors } = useForm()
@@ -26,32 +40,40 @@ function Register() {
   }
 
   return (
-    <div className="center">
-      <div className="container">
-        <h1>Cadastro de empresa</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            placeholder="username"
-            {...register('username', { required: true, min: 4 })}
-          />
+    <>
 
-          <input
-            {...register('email', { required: true })}
-            placeholder="E-mail"
-          />
+      <header>
+        <nav>
+          <div className="nav-container">
+            <Link to='/'> <Logo /> </Link>
+          </div>
+        </nav>
+      </header>
 
-          <input
-            {...register('password', { required: true })}
-            placeholder="Senha"
-          />
+      <main>
+          <div className="main-description">
+            <strong>Estamos quase lá!</strong>
+            <br />
+            <br />
+            Só precisamos de mais algumas informações.
+          </div>
 
-          <input type="submit" onClick={save} />
-        </form>
-        <button>Notify !</button>
-        <ToastContainer />
-      </div>
-    </div>
+          <div className="form-container">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Input type={'text'} placeholder={'Nome'} name={register('name')} />
+              <Input type={'email'} placeholder={'Email'} name={register('email')} />
+              <Input type={'password'} placeholder={'Senha'} name={register('password')} />
+              <Input type={'password'} placeholder={'Confirme a senha'} name={register('confirmPassword')} />
+              <div className="btn-container">
+                <InputSubmit event={save} value='Cadastrar e continuar' />
+                <ToastContainer />
+              </div>
+            </form>
+
+          </div>
+      </main>
+
+    </>
   )
 }
 
