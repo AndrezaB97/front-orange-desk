@@ -1,0 +1,9 @@
+body {
+  font-size: 2rem;
+}
+
+.button {
+  width: 100%;
+  background-color: #1a0d2e;
+  color: #ffffff;
+}

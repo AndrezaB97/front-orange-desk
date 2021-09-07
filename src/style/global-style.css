@@ -1,37 +1,36 @@
 * {
-    margin: 0;
-    padding: 0;
-    border: none;
-    text-decoration: none;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 1rem;
 
-    /* Global color variables */
+  /* Global color variables */
 
-    --white: #ffffff;
-    --light-grey: #c3c3c3;
-    --dark-grey: #414141;
-    --marine-blue: #1A0D2E;
-
+  --white: #ffffff;
+  --light-grey: #c3c3c3;
+  --dark-grey: #414141;
+  --marine-blue: #1a0d2e;
 }
 
 .sr-only {
-    position: absolute;
-    height: 1px;
-    width: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip-path: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-button, input, text-area {
-    background-color: transparent;
-    outline: none;
-    border: none;
+.button {
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
