@@ -5,10 +5,10 @@ import Img from './../../Assets/home-adm.png';
 const HomeAdm = () => {
   return(
     <React.Fragment>
-
       <div className="container">
-        
         <div className="row vh-100 d-flex align-items-center">
+
+          <a href="#" className="login-text">Login</a>
 
           <div className="col-md-6 col-12">
             <img src={Img} alt="Pessoas sentadas" className="img-fluid" />
