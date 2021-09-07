@@ -24,13 +24,11 @@ const Home = () => {
                         <Link to='/'> <Logo/> </Link>
                     </div>
 
-<<<<<<< HEAD
                     <div className="nav-container">
                         <Link to='/register'> <LoginAreaButton/> </Link>
-=======
+                    </div>
                     <div className="login-container">
                         <Link to='/adm'> <LoginAreaButton/> </Link>
->>>>>>> master
                     </div>
                 </nav>
             </Header>
