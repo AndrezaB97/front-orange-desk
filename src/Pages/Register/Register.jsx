@@ -2,15 +2,12 @@
 import React, { useEffect, useState, setUser } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom';
-
 
 // Importing services:
 import api from '../../services/api'
 
 // Import components:
 import Input from '../../Components/FormInput/Input'
-import Logo from '../../Components/Logo/Logo'
 
 // Importing style-sheets:
 import '../../style/global-style.css';
@@ -43,10 +40,8 @@ function Register() {
     <React.Fragment>
 
       <div className="container-fluid d-flex flex-column align-items-center vh-100">
-        <ConsultorHeader currentStep={'adm'} />
-        {/* <div className="row align-self-start">
-        </div> */}
 
+        <ConsultorHeader currentStep={'adm'} />
 
         <div className="container d-flex align-items-center vh-100">
           <div className="row flex-grow-1">
@@ -65,8 +60,9 @@ function Register() {
             </div>
           </div>
         </div>
+
       </div>
-      
+
     </React.Fragment>
   )
 }
