@@ -41,51 +41,34 @@ function Register() {
   return (
     <React.Fragment>
 
-      <div className="container mt-3">
-        <div className="row">
-          <div className="col-1">
-            <Link to='/'> <Logo /> </Link>
+      <div className='container vh-100 d-flex flex-column'>
+        <div className="container mt-3">
+          <div className="row justify-content-between">
+            <div className="col-1">
+              <Link to='/'> <Logo /> </Link>
+            </div>
+            <div className="col-1 h-auto bg-primary"></div>
           </div>
         </div>
-      </div>
-      <div className="container vh-100 d-flex align-items-center justify-content-center">
-        <div className="row vw-100">
-          <div className="col-md-6 col-12">
-            <h3>Estamos quase lá!</h3>
-            <p>Só precisamos de mais algumas informações.</p>
-          </div>
-          <div className="col-md-6 col-12">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome'} name={register('name')} />
-              <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email'} name={register('email')} />
-              <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha'} name={register('password')} />
-              <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha'} name={register('confirmPassword')} />
-              <button id='btnRegister' className='btn w-100 h-5 mt-3' onClick={save}>Cadastrar e continuar</button>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6 col-12">
+              <h3>Estamos quase lá!</h3>
+              <p>Só precisamos de mais algumas informações.</p>
+            </div>
+            <div className="col-md-6 col-12">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome'} name={register('name')} />
+                <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email'} name={register('email')} />
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha'} name={register('password')} />
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha'} name={register('confirmPassword')} />
+              </form>
+              <button id='btnRegister' className='btn w-100 h-auto mt-3 d-flex flex-column justify-content-end' onClick={save}>Cadastrar e continuar</button>
               <ToastContainer />
-            </form>
+            </div>
           </div>
         </div>
       </div>
-
-      {/* <div className="container vh-100 d-flex justify-content-center align-items-center">
-        <div className="row">
-          <div className="col-md-1 col-1">
-            <Link to='/'> <Logo /> </Link>
-          </div>
-        </div>
-        <div className="vw-50">
-          <h3>Estamos quase lá!</h3>
-          <p className=''>Só precisamos de mais algumas informações.</p>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome'} name={register('name')} />
-            <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email'} name={register('email')} />
-            <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha'} name={register('password')} />
-            <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha'} name={register('confirmPassword')} />
-            <button id='btnRegister' className='btn w-100 h-5 mt-3' onClick={save}>Cadastrar e continuar</button>
-            <ToastContainer />
-          </form>
-        </div>
-      </div> */}
 
     </React.Fragment>
   )
