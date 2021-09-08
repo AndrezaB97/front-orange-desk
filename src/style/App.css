@@ -4,3 +4,20 @@
 }
 
 @import '~react-toastify/dist/ReactToastify.min.css';
+
+html {
+  overflow-x: hidden;
+}
+
+.login-text {
+  text-align: right;
+  text-decoration: none;
+  color: #fe4400;
+  font-weight: bold;
+}
+
+.login-text:hover {
+  text-decoration: underline;
+  color: #dd420a;
+  font-weight: bold;
+}
