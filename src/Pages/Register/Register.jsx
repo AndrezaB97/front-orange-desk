@@ -21,19 +21,18 @@ function Register() {
   const [result, setResult] = useState('')
   const onSubmit = data => setResult(JSON.stringify(data))
 
-  const save = () => {
-    api
-      .post('/users')
-      .then(response => {
-        toast.success('Cadastro efetuado com sucesso', {
-          position: toast.POSITION.BOTTOM_RIGHT
-        })
+  const save = async () => {
+    try {
+      await api.post('/users', result)
+      toast.success('Cadastro efetuado com sucesso', {
+        position: toast.POSITION.TOP_RIGHT
       })
-      .catch(err => {
-        toast.warn('Erro ao cadastrar', {
-          position: toast.POSITION.BOTTOM_RIGHT
-        })
+    }
+    catch (err) {
+      toast.error('Erro ao cadastrar', {
+        position: toast.POSITION.TOP_RIGHT
       })
+    }
   }
 
   return (
@@ -41,7 +40,7 @@ function Register() {
 
       <div className="container-fluid d-flex flex-column align-items-center vh-100">
 
-        <ConsultorHeader currentStep={'adm'} />
+        <ConsultorHeader currentStep={'register'} />
 
         <div className="container d-flex align-items-center vh-100">
           <div className="row flex-grow-1">
@@ -51,12 +50,13 @@ function Register() {
             </div>
             <div className="col-md-6 col-12">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome'} name={register('name')} />
-                <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email'} name={register('email')} />
-                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha'} name={register('password')} />
-                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha'} name={register('confirmPassword')} />
+                <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome'} name={register('name', {required: true})} />
+                <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email'} name={register('email', {required: true})} />
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha'} name={register('password', {required: true})} />
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha'} name={register('confirmPassword', {required: true})} />
+                <button id='btnRegister' className='btn w-100 h-auto mt-md-3 mt-5' onClick={save}>Cadastrar e continuar</button>
+                <ToastContainer/>
               </form>
-              <button id='btnRegister' className='btn w-100 h-auto mt-3 align-self-end' onClick={save}>Cadastrar e continuar</button>
             </div>
           </div>
         </div>
