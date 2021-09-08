@@ -1,28 +1,24 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { GrPrevious } from 'react-icons/gr'
+import { useHistory } from 'react-router-dom';
 
-import Logo from '.././Logo/Logo';
-import { Header } from './ConsultorHeaderStyle';
+import StepBar from '../StepBar/StepBar';
+import BackButton from '../.././Assets/arrow-left.svg';
 
-const ConsultorHeader = ({currentStep, stepLabel}) => {
+const ConsultorHeader = ({ currentStep }) => {
 
     const history = useHistory();
 
     return ( 
 
         <>
-            <Header>
-                <Link to='/'> <Logo/> </Link>
-                
-                <nav className="step-bar-container">
-
-                    <button onClick={ () => history.goBack() } className={`previous-btn`}> <GrPrevious/> </button>
-                    <div className="step-container">
-                        <div className="step">{ `${currentStep}. ${stepLabel}` }</div>
-                    </div>
+            <header className='row container-fluid d-flex flex-column justify-content-between mt-2'>
+                <nav className='row d-flex justify-content-between mb-5'>
+                    <button className='col-3 p2 bg-white' onClick={() => history.push('/')}> <img className='img-fluid' src={ BackButton } alt='Botão para retornar à página anterior.'/> </button>
+                    <div className='col-1 p-2'>Logo</div>
                 </nav>
-            </Header>
+
+                <StepBar step={currentStep}/>
+            </header>
         </>
 
      );

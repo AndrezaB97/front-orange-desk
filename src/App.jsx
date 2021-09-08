@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Importing Pages:
-import Home from './Pages/Home/Home';
+import HomeAdm from './Pages/HomeAdm/HomeAdm';
 import Register from './Pages/Register/Register';
 import Consultor from  './Pages/Consultor/Consultor';
 import Adm from './Pages/Adm/Adm';
@@ -13,7 +13,6 @@ import Adm from './Pages/Adm/Adm';
 // Importing style-sheets:
 import './style/App.css';
 import './style/global-style.css';
-import HomeAdm from './Pages/HomeAdm/HomeAdm';
 
 
 function App() {
@@ -23,7 +22,7 @@ function App() {
       <Router>
 
         <Switch>
-          <Route path='/' exact component={ Home } />
+          <Route path='/' exact component={ HomeAdm } />
           <Route path="/adm" exact component={ Register } />
           <Route path="/consultor" exact component={ Consultor } />
           <Route path="/adm/criar" exact component={ Adm } />
