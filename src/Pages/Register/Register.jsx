@@ -20,7 +20,6 @@ function Register() {
   const { handleSubmit, register, formState: { errors } } = useForm()
 
   const [result, setResult] = useState('')
-  // const onSubmit = data => setResult(JSON.stringify(data))
 
   const onSubmit = async data => {
     try {
