@@ -2,7 +2,7 @@
 import React, { useEffect, useState, setUser } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 // Importing services:
 import api from '../../services/api'
@@ -16,10 +16,8 @@ import './Register.css'
 import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 
 
-function Register() {
+const Register = () => {
   const { handleSubmit, register, formState: { errors } } = useForm()
-
-  const [result, setResult] = useState('')
 
   const onSubmit = async data => {
     try {
