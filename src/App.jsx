@@ -6,6 +6,7 @@ import HomeAdm from './Pages/HomeAdm/HomeAdm';
 import Register from './Pages/Register/Register';
 import Consultor from  './Pages/Consultor/Consultor';
 import Adm from './Pages/Adm/Adm';
+import Login from './Pages/Login/Login';
 
 // Importing Components:
 
@@ -24,6 +25,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={ HomeAdm } />
           <Route path='/register' exact component={ Register } />
+          <Route path='/login' exact component={ Login } />
           <Route path="/consultor" exact component={ Consultor } />
           <Route path="/adm/criar" exact component={ Adm } />
           <Route path="/adm/home" exact component={ HomeAdm } />
