@@ -2,6 +2,7 @@
 import React, { useEffect, useState, setUser } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
+import {Link} from 'react-router-dom'
 
 // Importing services:
 import api from '../../services/api'
@@ -16,31 +17,31 @@ import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 
 
 function Register() {
-  const { handleSubmit, register, errors } = useForm()
+  const { handleSubmit, register, formState: { errors } } = useForm()
 
   const [result, setResult] = useState('')
-  const onSubmit = data => setResult(JSON.stringify(data))
+  // const onSubmit = data => setResult(JSON.stringify(data))
 
-  const save = async () => {
+  const onSubmit = async data => {
     try {
-      await api.post('/users', result)
-      toast.success('Cadastro efetuado com sucesso', {
+      await api.post('/users', data);
+      toast.success("Empresa cadastrada com sucesso!", {
         position: toast.POSITION.TOP_RIGHT
-      })
-    }
-    catch (err) {
-      toast.error('Erro ao cadastrar', {
+      });
+    } catch (err) {
+      console.log(err.response.data);
+      toast.error(err.response.data[0].message, {
         position: toast.POSITION.TOP_RIGHT
-      })
+      });
     }
-  }
+  };
 
   return (
     <React.Fragment>
 
       <div className="container-fluid d-flex flex-column align-items-center vh-100">
 
-        <ConsultorHeader currentStep={'register'} />
+        <ConsultorHeader currentStep={'login'} />
 
         <div className="container d-flex align-items-center vh-100">
           <div className="row flex-grow-1">
@@ -50,13 +51,20 @@ function Register() {
             </div>
             <div className="col-md-6 col-12">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome'} name={register('name', {required: true})} />
-                <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email'} name={register('email', {required: true})} />
-                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha'} name={register('password', {required: true})} />
-                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha'} name={register('confirmPassword', {required: true})} />
-                <button id='btnRegister' className='btn w-100 h-auto mt-md-3 mt-5' onClick={save}>Cadastrar e continuar</button>
+                <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome *'} name={register('name', {required: true})} />
+                {errors.name && errors.name.type === "required" && <span className="text-danger">Campo obrigatório</span>}
+                <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email *'} name={register('email', {required: true})} />
+                {errors.email && errors.email.type === "required" && <span className="text-danger">Campo obrigatório</span>}
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha *'} name={register('password', {required: true})} />
+                {errors.password && errors.password.type === "required" && <span className="text-danger">Campo obrigatório</span>}
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha *'} name={register('password_confirmation', {required: true})} />
+                {errors.password_confirmation && errors.password_confirmation.type === "required" && <span className="text-danger">Campo obrigatório</span>}                
+                <button id='btnRegister' className='btn w-100 h-auto mt-md-3 mt-5'>Cadastrar e continuar</button>
                 <ToastContainer/>
               </form>
+              <div className='text-center mt-3'>
+                <Link style={{'color': '#404099', 'textDecoration': 'none'}} to='#'>Já tenho login</Link>
+              </div>
             </div>
           </div>
         </div>
