@@ -15,7 +15,7 @@ export const Header = styled.header`
         justify-content: space-between;
         align-items: left;
         width: 100%;
-        margin-top: 2.4rem;
+        margin-top: 2rem;
 
         .previous-btn {
             width: 3.6rem;
