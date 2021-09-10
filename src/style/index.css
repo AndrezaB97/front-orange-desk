@@ -96,9 +96,9 @@ html {
 }
 
 .btn-orange:hover {
-  color: var(--orange);
-  background-color: var(--white);
-  border-color: var(--orange);
+  color: var(--white);
+  background-color: var(--dark-orange);
+  border-color: var(--dark-orange);
 }
 
 .text-orange {
@@ -121,8 +121,12 @@ html {
   border-color: var(--orange);
 }
 
+.link-hover:hover {
+  color: var(--dark-orange) !important;
+}
+
 .fs-10 {
-  font-size: 10px;
+  font-size: 10.5px;
 }
 
 .card {
