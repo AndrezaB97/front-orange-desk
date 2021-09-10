@@ -12,6 +12,12 @@
   }
 }
 
+@media only screen and (max-width: 900px) {
+  
+  .image {
+    display: none !important;
+  }
+}
 
 .DatePicker {
   position: relative;
@@ -86,7 +92,7 @@
   --cl-color-black: #444444;
   --cl-color-disabled: #d4d4d4;
   --cl-color-error: #ff2929;
-  font-size: 12px;
+  font-size: 11px;
   background: var(--grey-light);
   box-shadow: 0 .2rem .8rem rgba(0, 0, 0, 0.08);
   border: .1rem solid #C0C0C0;
