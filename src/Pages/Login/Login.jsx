@@ -40,7 +40,7 @@ const Login = () => {
             <main className="container-fluid d-flex flex-column align-items-center vh-100">
                 <header className='container d-flex justify-content-between mt-3'>
                     <button className='bg-white'>
-                        <FiArrowLeftCircle size='24' onClick={() => history.push('/')}/>
+                        <FiArrowLeftCircle size='24' color='#6A6A6A' onClick={() => history.push('/')}/>
                     </button>
                     <div>Logo</div>
                 </header>
