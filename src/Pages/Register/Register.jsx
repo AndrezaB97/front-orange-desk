@@ -2,24 +2,23 @@
 import React, { useEffect, useState, setUser } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
-import {Link} from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 // Importing services:
 import api from '../../services/api'
 
 // Import components:
 import Input from '../../Components/FormInput/Input'
+import { FiArrowLeftCircle } from 'react-icons/fi'
 
 // Importing style-sheets:
 import '../../style/global-style.css';
 import './Register.css'
-import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
-
 
 function Register() {
   const { handleSubmit, register, formState: { errors } } = useForm()
 
-  const [result, setResult] = useState('')
+  const history = useHistory()
 
   const onSubmit = async data => {
     try {
@@ -40,7 +39,12 @@ function Register() {
 
       <div className="container-fluid d-flex flex-column align-items-center vh-100">
 
-        <ConsultorHeader currentStep={'login'} />
+        <header className='container d-flex justify-content-between mt-3'>
+          <button className='bg-white'>
+            <FiArrowLeftCircle size='24' color='#6A6A6A' onClick={() => history.goBack()} />
+          </button>
+          <div>Logo</div>
+        </header>
 
         <div className="container d-flex align-items-center vh-100">
           <div className="row flex-grow-1">
@@ -50,19 +54,19 @@ function Register() {
             </div>
             <div className="col-md-6 col-12">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome *'} name={register('name', {required: true})} />
+                <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome *'} name={register('name', { required: true })} />
                 {errors.name && errors.name.type === "required" && <span className="text-danger">Campo obrigatório</span>}
-                <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email *'} name={register('email', {required: true})} />
+                <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email *'} name={register('email', { required: true })} />
                 {errors.email && errors.email.type === "required" && <span className="text-danger">Campo obrigatório</span>}
-                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha *'} name={register('password', {required: true})} />
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha *'} name={register('password', { required: true })} />
                 {errors.password && errors.password.type === "required" && <span className="text-danger">Campo obrigatório</span>}
-                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha *'} name={register('password_confirmation', {required: true})} />
-                {errors.password_confirmation && errors.password_confirmation.type === "required" && <span className="text-danger">Campo obrigatório</span>}                
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha *'} name={register('password_confirmation', { required: true })} />
+                {errors.password_confirmation && errors.password_confirmation.type === "required" && <span className="text-danger">Campo obrigatório</span>}
                 <button id='btnRegister' className='btn w-100 h-auto mt-md-3 mt-5'>Cadastrar e continuar</button>
-                <ToastContainer/>
+                <ToastContainer />
               </form>
               <div className='text-center mt-3'>
-                <Link style={{'color': '#404099', 'textDecoration': 'none'}} to='#'>Já tenho login</Link>
+                <Link style={{ 'color': '#404099', 'textDecoration': 'none' }} to='/login'>Já tenho login</Link>
               </div>
             </div>
           </div>
