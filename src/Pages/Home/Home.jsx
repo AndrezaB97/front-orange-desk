@@ -24,6 +24,9 @@ const Home = () => {
                         <Link to='/'> <Logo/> </Link>
                     </div>
 
+                    <div className="nav-container">
+                        <Link to='/register'> <LoginAreaButton/> </Link>
+                    </div>
                     <div className="login-container">
                         <Link to='/adm'> <LoginAreaButton/> </Link>
                     </div>
