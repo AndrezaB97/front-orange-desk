@@ -2,7 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import StepBar from '../StepBar/StepBar';
-import BackButton from '../.././Assets/arrow-left.svg';
+import { FiArrowLeftCircle } from 'react-icons/fi';
+
 
 const ConsultorHeader = ({ currentStep }) => {
 
@@ -11,9 +12,9 @@ const ConsultorHeader = ({ currentStep }) => {
     return ( 
 
         <>
-            <header className='row container-fluid d-flex flex-column justify-content-between mt-2'>
-                <nav className='row d-flex justify-content-between mb-5'>
-                    <button className='col-3 p2 bg-white' onClick={() => history.push('/')}> <img className='img-fluid' src={ BackButton } alt='Botão para retornar à página anterior.'/> </button>
+            <header className='row container-fluid d-flex flex-column justify-content-between mt-2 mt-lg-4'>
+                <nav className='row d-flex justify-content-between align-items-center mb-4'>
+                    <FiArrowLeftCircle className='icon-size col-3 p2 bg-white' onClick={() => history.goBack()}/>
                     <div className='col-1 p-2'>Logo</div>
                 </nav>
 

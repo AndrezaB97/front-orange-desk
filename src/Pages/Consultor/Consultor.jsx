@@ -27,7 +27,7 @@ const Consultor = () => {
                         </div>
 
                         <div className='d-flex flex-column flex-md-row flex-lg-column w-100'>    
-                            <Link className='card hover btn w-100 m-md-1 mb-1' to={ `/calendar/${JSON.stringify(office)}` } onClick={ () => {setOffice('sp'); console.log(office)} }>
+                            <Link className='card hover btn w-100 m-md-1 mb-1' to={ `/consultor/schedule/${JSON.stringify(office)}` } onClick={ () => {setOffice('sp')} }>
                                 <div className="container d-flex flex-row justify-content-between align-items-center p-3 rounded text-white">
                                     <div className="text-start">
                                         <h1 className=' fs-3 fw-bold text-orange'>SÃO PAULO</h1>
@@ -41,7 +41,7 @@ const Consultor = () => {
                                 </div>
                             </Link>
 
-                            <Link className='card hover btn w-100 m-md-1 mb-2' to={ `/calendar/${JSON.stringify(office)}` } onClick={ () => {setOffice('santos')} }>
+                            <Link className='card hover btn w-100 m-md-1 mb-2' to={ `consultor/schedule/${JSON.stringify(office)}` } onClick={ () => {setOffice('santos')} }>
                                 <div className="container d-flex flex-row justify-content-between align-items-center bg-orange p-3 rounded text-white">
                                     <div className="text-start">
                                         <h1 className='fs-3 fw-bold text-orange'>SANTOS</h1>
