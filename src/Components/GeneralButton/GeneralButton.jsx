@@ -1,12 +1,11 @@
 import React from 'react';
 
-import '../../style/global-style.css';
 import './GeneralButton.css';
 
 const GeneralButton = ({ children }) => {
     return ( 
 
-        <button>{ children }</button>
+        <button className='w-100 btn-orange'>{ children }</button>
 
      );
 }

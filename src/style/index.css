@@ -19,7 +19,7 @@ code {
   margin: 0;
   padding: 0;
   border: none;
-  text-decoration: none;
+  text-decoration: none !important;
   box-sizing: border-box;
 }
 
@@ -29,9 +29,14 @@ html {
   /* Global color variables */
 
   --white: #ffffff;
-  --light-grey: #c3c3c3;
-  --dark-grey: #414141;
-  --marine-blue: #1a0d2e;
+  --black: #2a2a2a;
+  --grey-light: #FAFAFA;
+  --grey: #EAEAEA;
+  --dark-grey: #6A6A6A;
+  --orange: #fe4400;
+  --dark-orange: #D03800;
+  --blue: #404099;
+  --light-blue: #A8A8D0;
 }
 
 .sr-only {
@@ -47,7 +52,7 @@ html {
 }
 
 .step-disabled {
-  background-color: #A8A8D0;
+  background-color: var(--light-blue);
   width: 8px;
   height: 8px;
   margin: 0 8px;
@@ -55,33 +60,65 @@ html {
 }
 
 .step-active {
-  background-color: #404099;
+  background-color: var(--blue);
   width: 16px;
   height: 16px;
   margin: 0 8px;
   border-radius: 50%;
 }
 
+.calendar-size {
+  width: 33em;
+}
+
 .btn-orange {
-  background-color: #fe4400;
-  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
   height: 2.3rem;
+  padding: 1.5rem;
+
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+
+  background-color: var(--orange);
+  
+  border: .1rem solid transparent;
+  border-radius: .8rem;
+  
+  transition: .5s all ease;
+  cursor: pointer;
+}
+
+.btn-orange:hover {
+  color: var(--orange);
+  background-color: var(--white);
+  border-color: var(--orange);
 }
 
 .text-orange {
-  color: #fe4400;
+  color: var(--orange);
 }
 
 .text-blue {
-  color: #404099;
+  color: var(--blue);
 }
 
 .text-black {
-  color: #2a2a2a;
+  color: var(--black);
+}
+
+.text-grey {
+  color: var(--light-grey);
 }
 
 .hover:hover {
-  border-color: #fe4400;
+  border-color: var(--orange);
 }
 
 .fs-10 {
@@ -89,12 +126,18 @@ html {
 }
 
 .card {
-  background-color: #FAFAFA;
-  border: 1px solid #EAEAEA;
+  background-color: var(--light-grey);
+  border: 1px solid var(--grey);
   box-sizing: border-box;
   box-shadow: 0px 2px 8px rgba(74, 74, 74, 0.08);
   border-radius: 8px;
   }
+
+.icon-size {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
 
 .btn-orange:hover {
   background-color: #db4610;
