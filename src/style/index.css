@@ -142,3 +142,9 @@ html {
   height: 2rem;
   cursor: pointer;
 }
+
+.btn-orange:hover {
+  background-color: #db4610;
+  border-radius: 5px;
+  height: 2.3rem;
+}
