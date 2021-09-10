@@ -8,7 +8,15 @@ const HomeAdm = () => {
       <div className="container">
         <div className="row vh-100 d-flex align-items-center">
 
+
+          <div className="d-flex justify-content-end">
+            <a href="/adm/criar" className="login-text p-3">Minha Empresa</a>
+            <a href="#" className="login-text p-3">Login</a>
+          </div>
+
+
           <a href="#" className="login-text">Login</a>
+
 
           <div className="col-md-6 col-12">
             <img src={Img} alt="Pessoas sentadas" className="img-fluid" />

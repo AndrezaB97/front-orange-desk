@@ -1,8 +1,19 @@
+// Importing modules:
 import React, { useEffect, useState, setUser } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
-import api from './../../services/api'
-import './Style.css'
+
+// Importing services:
+import api from '../../services/api'
+
+// Import components:
+import Input from '../../Components/FormInput/Input'
+
+// Importing style-sheets:
+import '../../style/global-style.css';
+import './Register.css'
+import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
+
 
 function Register() {
   const { handleSubmit, register, errors } = useForm()
@@ -26,32 +37,33 @@ function Register() {
   }
 
   return (
-    <div className="center">
-      <div className="container">
-        <h1>Cadastro de empresa</h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            placeholder="username"
-            {...register('username', { required: true, min: 4 })}
-          />
+    <React.Fragment>
 
-          <input
-            {...register('email', { required: true })}
-            placeholder="E-mail"
-          />
+      <div className="container-fluid d-flex flex-column align-items-center vh-100">
 
-          <input
-            {...register('password', { required: true })}
-            placeholder="Senha"
-          />
+        <ConsultorHeader currentStep={'adm'} />
 
-          <input type="submit" onClick={save} />
-        </form>
-        <button>Notify !</button>
-        <ToastContainer />
+        <div className="container d-flex align-items-center vh-100">
+          <div className="row flex-grow-1">
+            <div className="col-md-6 col-12">
+              <h3>Estamos quase lá!</h3>
+              <p>Só precisamos de mais algumas informações.</p>
+            </div>
+            <div className="col-md-6 col-12">
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <Input type={'text'} className={'form-control border-0 shadow-none'} placeholder={'Nome'} name={register('name')} />
+                <Input type={'email'} className={'form-control border-0 shadow-none'} placeholder={'Email'} name={register('email')} />
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Senha'} name={register('password')} />
+                <Input type={'password'} className={'form-control border-0 shadow-none'} placeholder={'Confirme a senha'} name={register('confirmPassword')} />
+              </form>
+              <button id='btnRegister' className='btn w-100 h-auto mt-3 align-self-end' onClick={save}>Cadastrar e continuar</button>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
+
+    </React.Fragment>
   )
 }
 
