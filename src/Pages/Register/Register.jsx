@@ -1,5 +1,5 @@
 // Importing modules:
-import React, { useEffect, useState, setUser } from 'react'
+import React from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
@@ -60,7 +60,7 @@ const Register = () => {
                 <ToastContainer/>
               </form>
               <div className='text-center mt-3'>
-                <Link style={{'color': '#404099', 'textDecoration': 'none'}} to='#'>Já tenho login</Link>
+                <Link style={{'color': '#404099', 'textDecoration': 'none'}} to='/login'>Já tenho login</Link>
               </div>
             </div>
           </div>
