@@ -12,8 +12,8 @@ import Input from '../../Components/FormInput/Input'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 
 // Importing style-sheets:
-import '../../style/global-style.css';
 import './Login.css'
+
 
 const Login = () => {
     const { handleSubmit, register, formState: { errors } } = useForm()
@@ -40,7 +40,7 @@ const Login = () => {
             <main className="container-fluid d-flex flex-column align-items-center vh-100">
                 <header className='container d-flex justify-content-between mt-3'>
                     <button className='bg-white'>
-                        <FiArrowLeftCircle size='24' color='#6A6A6A' onClick={() => history.push('/')}/>
+                        <FiArrowLeftCircle size='24' color='#6A6A6A' onClick={() => history.goBack()}/>
                     </button>
                     <div>Logo</div>
                 </header>
