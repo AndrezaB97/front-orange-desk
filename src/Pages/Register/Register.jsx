@@ -41,7 +41,7 @@ const Register = () => {
 
         <header className='container d-flex justify-content-between mt-3'>
           <button className='bg-white'>
-            <FiArrowLeftCircle size='24' color='#6A6A6A' onClick={() => history.goBack()} />
+            <FiArrowLeftCircle size='1.5rem' color='#6A6A6A' onClick={() => history.goBack()} />
           </button>
           <div>Logo</div>
         </header>
