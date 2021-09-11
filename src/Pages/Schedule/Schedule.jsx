@@ -24,7 +24,7 @@ const Schedule = () => {
 
                 <ConsultorHeader currentStep={'date'}/>
 
-                <main className='mt-3 d-flex flex-column flex-lg-row justify-content-between align-items-center'>
+                <main className='mt-3 d-flex flex-column flex-lg-row justify-content-center align-items-center'>
                     <div className="mt-4 align-self-start">
                         <h1 className='text-grey fs-5 fw-normal'>Unidade: SEDE - São Paulo</h1>
                         {/* <h1 className=''>Unidade: FILIAL - Santos</h1> */}
