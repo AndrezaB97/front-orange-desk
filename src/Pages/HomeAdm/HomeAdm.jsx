@@ -23,7 +23,7 @@ const HomeAdm = () => {
             
             <p>asdasakjsfjaksdlfa Seja qual for o motivo, aqui você agenda o dia que precisa ir ao escritório e garante um dia de trabalho seguro e agradável.</p>
 
-            <button className="btn-orange mt-3 w-100">Quero reservar</button>
+            <a href="/consultor"><button className="btn-orange mt-3 w-100">Quero reservar</button></a>
 
           </div>
 

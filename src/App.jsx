@@ -13,6 +13,7 @@ import Adm from './Pages/Adm/Adm';
 // Importing style-sheets:
 import './style/App.css';
 import './style/global-style.css';
+import AdmLogin from './Pages/AdmLogin';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/consultor" exact component={ Consultor } />
           <Route path="/adm/criar" exact component={ Adm } />
           <Route path="/adm/home" exact component={ HomeAdm } />
+          <Route path="/adm/login" exact component={ AdmLogin } />
         </Switch>
         
       </Router>
