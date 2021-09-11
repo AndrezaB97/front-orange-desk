@@ -1,0 +1,9 @@
+#btnContinue {
+    background-color: #FE4400;
+    color: var(--white);
+    transition: all .15s;
+}
+
+#btnContinue:hover {
+    filter: brightness(80%);
+}
