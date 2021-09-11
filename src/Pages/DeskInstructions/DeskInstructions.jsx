@@ -3,7 +3,7 @@ import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 // Import components:
-import SignsImg from './../../Assets/signs-image.svg'
+import SignsImg from './../../Assets/signs.svg'
 import NumeredDesk from './../../Assets/numered-desk.svg'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 
