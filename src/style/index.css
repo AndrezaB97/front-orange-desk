@@ -99,6 +99,7 @@ html {
   color: var(--white);
   background-color: var(--dark-orange);
   border-color: var(--dark-orange);
+  border-radius: .8rem !important;
 }
 
 .text-orange {

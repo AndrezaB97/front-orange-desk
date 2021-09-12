@@ -10,8 +10,8 @@ import Img from './../../Assets/calendar-img.svg';
 
 const Schedule = () => {
     
-    const currentDate = utils().getToday()
-    const [selectedDay, setSelectedDay] = useState(currentDate)
+    const currentDate = utils().getToday();
+    const [selectedDay, setSelectedDay] = useState(currentDate);
     
     const handleMaximumDate = () =>  {
         return {year: currentDate.year, month: currentDate.month + 1, day: currentDate.day};
@@ -24,13 +24,13 @@ const Schedule = () => {
 
                 <ConsultorHeader currentStep={'date'}/>
 
-                <main className='mt-3 d-flex flex-column flex-lg-row justify-content-center align-items-center'>
-                    <div className="mt-4 align-self-start">
-                        <h1 className='text-grey fs-5 fw-normal'>Unidade: SEDE - São Paulo</h1>
+                <main className='mt-1 mt-md-4 d-flex flex-column flex-lg-row justify-content-center align-items-center'>
+                    <div className="mt-4 align-self-start ms-2 ms-md-5">
+                        <h1 className='text-grey fs-5 fw-normal ms-md-5'>Unidade: SEDE - São Paulo</h1>
                         {/* <h1 className=''>Unidade: FILIAL - Santos</h1> */}
-                        <p className='text-black mt-3 mb-lg-4'>Quais os dias que você precisa ir ao escritório?</p>
+                        <p className='text-black mt-3 mb-lg-4 ms-md-5'>Quais os dias que você precisa ir ao escritório?</p>
 
-                        <img className='img-fluid mt-4 col-lg-10 image' src={ Img }/>
+                        <img className='img-fluid mt-4 col-lg-10 image' src={ Img } alt='Pessoas diversificadas trabalhando no escritório.'/>
                     </div>
 
                     <div>
@@ -51,7 +51,7 @@ const Schedule = () => {
                                 {25} mesas disponíveis
                             </span>
         
-                            <button className='btn-orange mt-lg-4 w-100'>Confirmar data</button>
+                            <button className='btn-orange mt-3 w-100'>Confirmar data</button>
                         </div>
                     </div>
                 </main>
