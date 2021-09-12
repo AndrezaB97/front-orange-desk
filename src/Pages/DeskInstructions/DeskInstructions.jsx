@@ -10,6 +10,7 @@ import { FiThumbsUp } from 'react-icons/fi'
 import Logo from './../../Assets/logo-Orange-Desk.svg'
 
 // Importing style-sheets:
+import './DeskInstructions.css'
 
 const DeskInstructions = () => {
 
