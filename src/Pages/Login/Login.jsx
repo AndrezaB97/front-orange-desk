@@ -10,6 +10,7 @@ import api from '../../services/api'
 // Import components:
 import Input from '../../Components/FormInput/Input'
 import { FiArrowLeftCircle } from 'react-icons/fi'
+import Logo from './../../Assets/logo-Orange-Desk.svg'
 
 // Importing style-sheets:
 import './Login.css'
@@ -42,7 +43,9 @@ const Login = () => {
                     <button className='bg-white'>
                         <FiArrowLeftCircle size='24' color='#6A6A6A' onClick={() => history.goBack()}/>
                     </button>
-                    <div>Logo</div>
+                    <Link to='/'>
+                        <img className='img-fluid' style={{width: '2.938rem', height: '2.638rem'}} src={Logo} alt="Logotipo OrangeDesk" />
+                    </Link>
                 </header>
                 <form className="row w-auto h-100 align-content-md-center my-3 mx-1" onSubmit={handleSubmit(onSubmit)}>
                     <div className="col-12">

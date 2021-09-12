@@ -7,9 +7,9 @@ import SignsImg from './../../Assets/signs.svg'
 import NumeredDeskImg from './../../Assets/numered-desk.svg'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 import { FiThumbsUp } from 'react-icons/fi'
+import Logo from './../../Assets/logo-Orange-Desk.svg'
 
 // Importing style-sheets:
-import './DeskInstructions.css';
 
 const DeskInstructions = () => {
 
@@ -23,7 +23,9 @@ const DeskInstructions = () => {
                     <button className='bg-white'>
                         <FiArrowLeftCircle size='24' color='#FE885C' onClick={() => history.goBack()} />
                     </button>
-                    <div>Logo</div>
+                    <Link to='/'>
+                        <img className='img-fluid' style={{width: '2.938rem', height: '2.638rem'}} src={Logo} alt="Logotipo OrangeDesk" />
+                    </Link>
                 </header>
 
                 <div className="container d-flex h-100 mt-md-0 mt-3">
