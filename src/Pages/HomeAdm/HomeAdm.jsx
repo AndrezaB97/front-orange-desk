@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Img from './../../Assets/home-page.svg';
 import Logo from './../../Assets/logo-Orange-Desk.svg';
+import Img from './../../Assets/home-page.svg';
 
 const HomeAdm = () => {
   return(
