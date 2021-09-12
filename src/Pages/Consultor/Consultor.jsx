@@ -8,6 +8,8 @@ import Img from './../../Assets/consultor-page.svg';
 
 const Consultor = () => {
 
+    document.title = 'OFFICE | Orange Desk';
+    
     const [office, setOffice] = useState('');
 
     return ( 

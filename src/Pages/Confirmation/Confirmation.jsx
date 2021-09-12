@@ -5,6 +5,9 @@ import Logo from './../../Assets/logo-Orange-Desk.svg';
 import Img from './../../Assets/confirmation-page.svg';
 
 const Confirmation = () => {
+
+    document.title = 'CONFIRMATION | Orange Desk';
+
     return ( 
 
         <React.Fragment>

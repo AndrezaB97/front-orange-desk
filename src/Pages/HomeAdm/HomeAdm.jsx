@@ -5,13 +5,16 @@ import Logo from './../../Assets/logo-Orange-Desk.svg';
 import Img from './../../Assets/home-page.svg';
 
 const HomeAdm = () => {
+
+  document.title = 'HOME | Orange Desk'
+
   return(
     
     <React.Fragment>
 
       <div className="container-lg container-md d-flex flex-column justify-content-start align-items-center bg-white container vw-100 vh-100">
 
-          <header className='col-lg-10 col-11 container-fluid d-flex justify-content-between align-items-center mt-3 mb-sm-1 mt-lg-4'>
+          <header role='navigation' className='col-lg-10 col-11 container-fluid d-flex justify-content-between align-items-center mt-3 mb-sm-1 mt-lg-4'>
             <Link className='col-3 col-lg-1' to='/'>
               <img className='img-fluid p-2' src={ Logo } alt='Logotipo FCamara'/>
             </Link>
