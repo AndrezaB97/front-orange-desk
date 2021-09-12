@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomeAdm from './Pages/HomeAdm/HomeAdm';
 import Consultor from  './Pages/Consultor/Consultor';
 import Schedule from './Pages/Schedule/Schedule';
-import Adm from './Pages/Adm/Adm';
 import Login from './Pages/Login/Login';
 import DeskInstructions from './Pages/DeskInstructions/DeskInstructions';
 
