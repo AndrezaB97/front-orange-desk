@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 import Img from './../../Assets/consultor-page.svg';
 
-// import { Main } from './ConsultorStyle.js';
-
 const Consultor = () => {
 
     document.title = 'OFFICE | Orange Desk';

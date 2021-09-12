@@ -1,8 +1,6 @@
 // Importing modules and packages:
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-// Importing Pages:
-
 // Consultor pages:
 import HomeAdm from './Pages/HomeAdm/HomeAdm';
 import Consultor from  './Pages/Consultor/Consultor';
@@ -13,13 +11,8 @@ import Confirmation from './Pages/Confirmation/Confirmation';
 import Adm from './Pages/Adm/Adm';
 import Register from './Pages/Register/Register';
 
-// Importing Components:
-
-
 // Importing style-sheets:
 import './style/App.css';
-import './style/global-style.css';
-
 
 function App() {
   return (

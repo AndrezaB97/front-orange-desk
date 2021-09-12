@@ -3,9 +3,8 @@ import { useHistory, Link } from 'react-router-dom';
 
 import StepBar from '../StepBar/StepBar';
 import { FiArrowLeftCircle } from 'react-icons/fi';
+
 import Logo from './../../Assets/logo-Orange-Desk.svg';
-
-
 
 const ConsultorHeader = ({ currentStep }) => {
 
