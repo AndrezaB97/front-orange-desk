@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
-import Img from './../../Assets/adm-image.png'
-import api from './../../services/api';
 import { toast, ToastContainer } from 'react-toastify';
+
+import api from './../../services/api';
+
+import Img from './../../Assets/consultor-page.svg';
 
 const Adm = () => {
   
+  document.title = 'ADM SIGN-UP | Orange Desk'
+
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => {
     api.post(`/register_company`, data)

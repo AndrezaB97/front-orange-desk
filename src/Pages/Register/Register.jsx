@@ -12,7 +12,6 @@ import Input from '../../Components/FormInput/Input'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 
 // Importing style-sheets:
-import '../../style/global-style.css';
 import './Register.css'
 
 const Register = () => {
