@@ -7,6 +7,7 @@ import Consultor from  './Pages/Consultor/Consultor';
 import Schedule from './Pages/Schedule/Schedule';
 import Login from './Pages/Login/Login';
 import DeskInstructions from './Pages/DeskInstructions/DeskInstructions';
+import SelectDesk from './Pages/SelectDesk/SelectDesk';
 
 // Importing Components:
 import Confirmation from './Pages/Confirmation/Confirmation';
@@ -34,6 +35,7 @@ function App() {
           <Route path="/adm/criar" exact component={ Adm } />
           <Route path="/adm/home" exact component={ HomeAdm } />
           <Route path='/instructions'exact component={ DeskInstructions } />
+          <Route path='/desks' exact component={ SelectDesk } />
         </Switch>
         
       </Router>
