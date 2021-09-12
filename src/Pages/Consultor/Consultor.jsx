@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 import Img from './../../Assets/consultor-page.svg';
 
-// import { Main } from './ConsultorStyle.js';
-
 const Consultor = () => {
 
+    document.title = 'OFFICE | Orange Desk';
+    
     const [office, setOffice] = useState('');
 
     return ( 
@@ -18,7 +18,7 @@ const Consultor = () => {
                 <ConsultorHeader currentStep={'office'}/>
 
                 <main className= 'container-fluid row v-100 d-flex justify-content-start flex-column align-items-center flex-lg-row'>
-                    <img className='img-fluid w-md-25 col-lg-8 col-10' src={Img} alt='Colegas conversando de forma descontraída no escritório.' />
+                    <img className='img-fluid w-md-25 col-lg-8 col-10' src={ Img } alt='Colegas conversando de forma descontraída no escritório.' />
 
                     <div className='container-fluid col-lg-4 flex-column justify-content-evenly align-items-start mt-3'>
                         

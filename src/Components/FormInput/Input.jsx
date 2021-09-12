@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
+
 import { BsEye, BsEyeSlash } from 'react-icons/bs'
-
-import '../../style/global-style.css';
-// import './Input.css';
-
 
 const Input = ({ type, placeholder, name, className }) => {
 

@@ -10,7 +10,6 @@ import api from '../../services/api'
 import Input from '../../Components/FormInput/Input'
 
 // Importing style-sheets:
-import '../../style/global-style.css';
 import './Register.css'
 import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 
