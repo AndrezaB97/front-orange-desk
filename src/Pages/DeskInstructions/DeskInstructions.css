@@ -1,0 +1,20 @@
+#btnContinue {
+    background-color: #FE4400;
+    color: var(--white);
+    transition: all .15s;
+}
+
+#btnLike {
+    width: 5.125rem;
+    height: 3rem;
+    background-color: #FE4400;
+    color: var(--white);
+    transition: all .15s;
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+}
+
+.btnLink:hover {
+    filter: brightness(80%);
+}

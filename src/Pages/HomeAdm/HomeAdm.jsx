@@ -18,7 +18,7 @@ const HomeAdm = () => {
             <Link className='col-3 col-lg-1' to='/'>
               <img className='img-fluid p-2' src={ Logo } alt='Logotipo FCamara'/>
             </Link>
-            <Link to='#' className='text-orange link-hover fw-bold col-1'>Login</Link>
+            <Link to='/login' className='text-orange link-hover fw-bold col-1'>Login</Link>
           </header>
 
           <main className= 'container-fluid row w-100 d-flex justify-content-start flex-column align-items-center flex-lg-row'> 

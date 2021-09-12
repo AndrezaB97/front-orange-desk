@@ -8,3 +8,7 @@ button#btnRegister {
 button#btnRegister:hover {
   filter: brightness(80%);
 }
+
+div#temLogin {
+  color: #404099;
+}

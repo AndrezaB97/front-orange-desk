@@ -1,0 +1,10 @@
+button#btnLogin {
+    box-shadow: none;
+    background-color: #FE4400;
+    color: var(--white);
+    transition: all .15s;
+}
+
+button#btnLogin:hover {
+    filter: brightness(80%);
+}

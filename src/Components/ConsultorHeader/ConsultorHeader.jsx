@@ -10,7 +10,7 @@ const ConsultorHeader = ({ currentStep }) => {
 
     const history = useHistory();
 
-    return ( 
+    return (
 
         <>
 

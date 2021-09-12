@@ -5,6 +5,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import HomeAdm from './Pages/HomeAdm/HomeAdm';
 import Consultor from  './Pages/Consultor/Consultor';
 import Schedule from './Pages/Schedule/Schedule';
+import Login from './Pages/Login/Login';
+import DeskInstructions from './Pages/DeskInstructions/DeskInstructions';
+
+// Importing Components:
 import Confirmation from './Pages/Confirmation/Confirmation';
 
 // ADM pages:
@@ -22,12 +26,14 @@ function App() {
 
         <Switch>
           <Route path='/' exact component={ HomeAdm } />
-          <Route path="/adm" exact component={ Register } />
+          <Route path='/register' exact component={ Register } />
+          <Route path='/login' exact component={ Login } />
           <Route path="/consultor" exact component={ Consultor } />
           <Route path="/consultor/schedule/:office" exact component={ Schedule } />
           <Route path='/confirmation' exact component={ Confirmation } />
           <Route path="/adm/criar" exact component={ Adm } />
           <Route path="/adm/home" exact component={ HomeAdm } />
+          <Route path='/instructions'exact component={ DeskInstructions } />
         </Switch>
         
       </Router>
