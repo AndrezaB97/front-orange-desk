@@ -114,7 +114,7 @@ html {
 
   background-color: var(--orange);
   
-  border: .1rem solid transparent;
+  border: .1rem solid var(--orange);
   border-radius: .8rem;
   
   transition: .5s all ease;
@@ -125,7 +125,30 @@ html {
   color: var(--white);
   background-color: var(--dark-orange);
   border-color: var(--dark-orange);
-  border-radius: .8rem !important;
+}
+
+.btn-white {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  height: 2.3rem;
+  padding: 1.5rem;
+
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16px;
+  text-decoration: none;
+
+  background-color: var(--white);
+  
+  border: .1rem solid transparent;
+  border-radius: .8rem;
+  
+  transition: .5s all ease;
+  cursor: pointer;
 }
 
 .hover:hover {
@@ -174,3 +197,8 @@ html {
   font-family: 'Metropolis Extra Bold';
 }
 
+.form {
+  height: 2.3rem;
+  padding: 1.5rem;
+  border-radius: .8rem;
+}

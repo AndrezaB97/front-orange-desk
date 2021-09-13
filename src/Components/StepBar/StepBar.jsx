@@ -15,7 +15,6 @@ const StepBar = ({step}) => {
   return (
 
     <div className='d-flex flex-row justify-content-center align-items-center'>
-      <div id='login' className='step'></div>
       <div id='office' className='step'></div>
       <div id='date' className='step'></div>
       <div id='desk' className='step'></div>
