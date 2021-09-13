@@ -63,7 +63,7 @@ const Login = () => {
                             {errors.password && errors.password.type === "required" && <span className="text-danger">Campo obrigatório</span>}
                             
                             <div className="w-auto align-self-end text-center mt-md-3">
-                                <button id='btnLogin' className='form-control btn-orange mt-5 w-100'>Criar cadastro e continuar</button>
+                                <button id='btnLogin' className='form-control btn-orange mt-5 w-100'>Fazer login e continuar</button>
                                 <ToastContainer/>
                             </div>
                         </form>       

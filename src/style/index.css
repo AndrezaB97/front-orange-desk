@@ -132,10 +132,10 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
+  
   height: 2.3rem;
   padding: 1.5rem;
-
+  
   color: var(--blue);
   font-size: 14px;
   font-weight: 500;
@@ -157,6 +157,16 @@ html {
 
 .link-hover:hover {
   color: var(--dark-orange) !important;
+}
+
+/* ------------------------------------- */
+
+/* Custom class for input layout: */
+
+.form {
+  height: 2.3rem;
+  padding: 1.5rem;
+  border-radius: .8rem;
 }
 
 /* ------------------------------------- */
@@ -185,6 +195,8 @@ html {
 
 /* ------------------------------------- */
 
+/* Custom classes for font-weight property: */
+
 .fw__light {
   font-family: 'Metropolis Light';
 }
@@ -201,8 +213,4 @@ html {
   font-family: 'Metropolis Extra Bold';
 }
 
-.form {
-  height: 2.3rem;
-  padding: 1.5rem;
-  border-radius: .8rem;
-}
+/* ------------------------------------- */
