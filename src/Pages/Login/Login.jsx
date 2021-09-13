@@ -16,6 +16,9 @@ import './Login.css';
 import Logo from './../../Assets/logo-Orange-Desk.svg';
 
 const Login = () => {
+
+    document.title = 'LOGIN | Orange Desk'
+
     const { handleSubmit, register, formState: { errors } } = useForm()
 
     const history = useHistory()

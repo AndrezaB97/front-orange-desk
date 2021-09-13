@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Metropolis Regular ', 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Metropolis Regular', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -176,17 +176,21 @@ html {
 }
 
 .text-grey {
-  color: var(--light-grey);
+  color: var(--dark-grey);
 }
 
 .fs-10 {
-  font-size: 10.5px;
+  font-size: 11px;
 }
 
 /* ------------------------------------- */
 
 .fw__light {
   font-family: 'Metropolis Light';
+}
+
+.fw__medium {
+  font-family: 'Metropolis Medium';
 }
 
 .fw__bold {

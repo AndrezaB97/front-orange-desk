@@ -16,6 +16,9 @@ import './Register.css';
 import Logo from './../../Assets/logo-Orange-Desk.svg';
 
 const Register = () => {
+
+  document.title = 'REGISTER | Orange Desk';
+
   const { handleSubmit, register, formState: { errors } } = useForm()
 
   const history = useHistory()
