@@ -3,18 +3,19 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // Consultor pages:
 import HomeAdm from './Pages/HomeAdm/HomeAdm';
-import Consultor from  './Pages/Consultor/Consultor';
-import Schedule from './Pages/Schedule/Schedule';
+import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
+import Office from  './Pages/Office/Office';
+import Schedule from './Pages/Schedule/Schedule';
 import DeskInstructions from './Pages/DeskInstructions/DeskInstructions';
 import SelectDesk from './Pages/SelectDesk/SelectDesk';
+import Review from './Pages/Review/Review';
+import Confirmation from './Pages/Confirmation/Confirmation';
 
 // Importing Components:
-import Confirmation from './Pages/Confirmation/Confirmation';
 
 // ADM pages:
 import Adm from './Pages/Adm/Adm';
-import Register from './Pages/Register/Register';
 
 // Importing style-sheets:
 import './style/App.css';
@@ -29,13 +30,14 @@ function App() {
           <Route path='/' exact component={ HomeAdm } />
           <Route path='/register' exact component={ Register } />
           <Route path='/login' exact component={ Login } />
-          <Route path="/consultor" exact component={ Consultor } />
-          <Route path="/consultor/schedule/:office" exact component={ Schedule } />
+          <Route path="/office" exact component={ Office } />
+          <Route path="/office/schedule/:office" exact component={ Schedule } />
+          <Route path='/instructions'exact component={ DeskInstructions } />
+          <Route path='/desks' exact component={ SelectDesk } />
+          <Route path='/review' exact component={ Review } />
           <Route path='/confirmation' exact component={ Confirmation } />
           <Route path="/adm/criar" exact component={ Adm } />
           <Route path="/adm/home" exact component={ HomeAdm } />
-          <Route path='/instructions'exact component={ DeskInstructions } />
-          <Route path='/desks' exact component={ SelectDesk } />
         </Switch>
         
       </Router>

@@ -169,6 +169,15 @@ html {
   border-radius: .8rem;
 }
 
+.checkbox-size {
+  height: 24px;
+  width: 24px;
+  border: .1rem solid var(--dark-grey);
+  border-radius: .9rem;
+  cursor: pointer;
+}
+
+
 /* ------------------------------------- */
 
 /* Custom classes for text color and size properties: */
@@ -191,6 +200,10 @@ html {
 
 .fs-10 {
   font-size: 11px;
+}
+
+.fs-12 {
+  font-size: 12px;
 }
 
 /* ------------------------------------- */

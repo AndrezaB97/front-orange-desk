@@ -1,8 +1,8 @@
 // Importing modules:
-import React from 'react'
-import { ToastContainer, toast } from 'react-toastify'
-import { useForm } from 'react-hook-form'
-import { Link, useHistory } from 'react-router-dom'
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import { useForm } from 'react-hook-form';
+import { Link, useHistory } from 'react-router-dom';
 
 // Importing services:
 import api from '../../services/api'
@@ -12,14 +12,13 @@ import Input from '../../Components/FormInput/Input';
 import { FiArrowLeftCircle } from 'react-icons/fi';
 
 // Importing style-sheets:
-import './Register.css';
 import Logo from './../../Assets/logo-Orange-Desk.svg';
 
 const Register = () => {
 
   document.title = 'REGISTER | Orange Desk';
 
-  const { handleSubmit, register, formState: { errors } } = useForm()
+  const { handleSubmit, register, formState: { errors } } = useForm();
 
   const history = useHistory()
 
