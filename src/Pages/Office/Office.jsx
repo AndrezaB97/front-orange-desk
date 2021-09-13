@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 import Img from './../../Assets/consultor-page.svg';
 
-const Consultor = () => {
+const Office = () => {
 
     document.title = 'OFFICE | Orange Desk';
     
@@ -27,7 +27,7 @@ const Consultor = () => {
                         </div>
 
                         <div className='d-flex flex-column flex-md-row flex-lg-column w-100'>    
-                            <Link className='card hover btn w-100 m-md-1 mb-1' to={ `/consultor/schedule/${JSON.stringify(office)}` } onClick={ () => {setOffice('sp')} }>
+                            <Link className='card hover btn w-100 m-md-1 mb-1' to={ `/office/schedule/${JSON.stringify(office)}` } onClick={ () => {setOffice('sp')} }>
                                 <div className="container d-flex flex-row justify-content-between align-items-center p-3 rounded text-white">
                                     <div className="text-start">
                                         <h1 className=' fs-3 fw__extra-bold text-orange'>SÃO PAULO</h1>
@@ -41,7 +41,7 @@ const Consultor = () => {
                                 </div>
                             </Link>
 
-                            <Link className='card hover btn w-100 m-md-1 mb-2' to={ `consultor/schedule/${JSON.stringify(office)}` } onClick={ () => {setOffice('santos')} }>
+                            <Link className='card hover btn w-100 m-md-1 mb-2' to={ `office/schedule/${JSON.stringify(office)}` } onClick={ () => {setOffice('santos')} }>
                                 <div className="container d-flex flex-row justify-content-between align-items-center bg-orange p-3 rounded text-white">
                                     <div className="text-start">
                                         <h1 className='fs-3 fw__extra-bold text-orange'>SANTOS</h1>
@@ -64,4 +64,4 @@ const Consultor = () => {
      );
 }
  
-export default Consultor;
+export default Office;

@@ -12,7 +12,6 @@ import Input from '../../Components/FormInput/Input';
 import { FiArrowLeftCircle } from 'react-icons/fi';
 
 // Importing style-sheets:
-import './Register.css';
 import Logo from './../../Assets/logo-Orange-Desk.svg';
 
 const Register = () => {
