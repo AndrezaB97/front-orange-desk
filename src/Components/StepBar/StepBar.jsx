@@ -18,7 +18,6 @@ const StepBar = ({step}) => {
       <div id='office' className='step'></div>
       <div id='date' className='step'></div>
       <div id='desk' className='step'></div>
-      <div id='login' className='step'></div>
     </div>
 
   );
