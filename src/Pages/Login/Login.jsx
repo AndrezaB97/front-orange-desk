@@ -8,8 +8,8 @@ import { Link, useHistory } from 'react-router-dom'
 import api from '../../services/api'
 
 // Import components:
-import Input from '../../Components/FormInput/Input'
-import { FiArrowLeftCircle } from 'react-icons/fi'
+import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
+import Input from '../../Components/FormInput/Input';
 
 // Importing style-sheets:
 import './Login.css'
@@ -39,11 +39,9 @@ const Login = () => {
 
             <main className="container-fluid d-flex flex-column align-items-center vh-100">
                 <header className='container d-flex justify-content-between mt-3'>
-                    <button className='bg-white'>
-                        <FiArrowLeftCircle size='24' color='#6A6A6A' onClick={() => history.goBack()}/>
-                    </button>
-                    <div>Logo</div>
+                    <ConsultorHeader currentStep={ 'login' }/>
                 </header>
+
                 <form className="row w-auto h-100 align-content-md-center my-3 mx-1" onSubmit={handleSubmit(onSubmit)}>
                     <div className="col-12">
                         <h5>Faça seu login.</h5>
