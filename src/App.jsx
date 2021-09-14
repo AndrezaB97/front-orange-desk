@@ -27,7 +27,7 @@ function App() {
           <Route path='/' exact component={ HomeAdm } />
           <Route path="/adm" exact component={ Register } />
           <Route path="/consultor" exact component={ Consultor } />
-          <Route path="/consultor/schedule/:office" exact component={ Schedule } />
+          <Route path="/consultor/schedule/" exact component={ Schedule } />
           <Route path="/adm/criar" exact component={ Adm } />
           <Route path="/adm/home" exact component={ HomeAdm } />
           <Route path="/adm/login" exact component={ AdmLogin } />

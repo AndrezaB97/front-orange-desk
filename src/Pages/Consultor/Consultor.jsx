@@ -4,6 +4,7 @@ import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 import Img from './../../Assets/consultor-page.svg';
 import api from './../../services/api';
 import { useHistory } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const Consultor = () => {
     const history = useHistory();
@@ -17,7 +18,9 @@ const Consultor = () => {
             const { data } = await api.get("/unity");
             setCardData(data);
           } catch (error) {
-            alert("Ocorreu um erro ao buscar os items");
+            toast.error("Erro ao buscar unidades", {
+                position: toast.POSITION.TOP_RIGHT
+            });
           }
         }
         getUnities();
@@ -48,7 +51,7 @@ const Consultor = () => {
                             onClick={() => {
                                 localStorage.setItem('unity_id', item.id);
                                 console.log(localStorage.getItem('unity_id'));
-                                history.push("/adm/criar");
+                                history.push("/consultor/schedule/");
                             }} 
                             >
                                 <div className="container d-flex flex-row justify-content-between 
@@ -77,6 +80,8 @@ const Consultor = () => {
                     </div>
                 </main>
             </div>
+
+            <ToastContainer />
         </React.Fragment>
 
      );
