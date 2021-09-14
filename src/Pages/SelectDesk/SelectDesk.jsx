@@ -20,6 +20,7 @@ const SelectDesk = () => {
         color: '#404099'
     }
 
+    const [toggle, setToggle] = useState(false);
     const [value, setValue] = useState('');
     const HandleChange = (e) => setValue(e.target.value);
 
@@ -69,8 +70,8 @@ const SelectDesk = () => {
                             <div class="accordion accordion-flush mt-3 mb-5" id="accordionFlush">
                                 <div class="accordion-item text-center">
                                     <p class="accordion-header" id="flush-showDesks">
-                                        <button style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Mostrar mesas disponíveis
+                                        <button onClick={() => setToggle(!toggle)} style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            {toggle ? <span>Ocultar mesas disponíveis</span> : <span>Mostrar mesas disponíveis</span>}
                                         </button>
                                     </p>
                                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-showDesks" data-bs-parent="#accordionFlush">
