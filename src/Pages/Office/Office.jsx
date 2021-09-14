@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react';
 import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 import Img from './../../Assets/consultor-page.svg';
 import api from './../../services/api';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Office = () => {
     const history = useHistory();
 
-
+    const [office, setOffice] = useState('');
     const [cardData, setCardData] = useState([]);
 
     useEffect(() => {
@@ -46,8 +46,8 @@ const Office = () => {
                         <div className='d-flex flex-column flex-md-row flex-lg-column w-100'>
                         
                         {cardData.map((item) => (
-                            
-                            <div className='card hover btn w-100 m-md-1 mb-1' value={item.id}
+                            <>
+                            <Link className='card hover btn w-100 m-md-1 mb-1' value={item.id}
                             onClick={() => {
                                 localStorage.setItem('unity_id', item.id);
                                 console.log(localStorage.getItem('unity_id'));
@@ -94,8 +94,8 @@ const Office = () => {
 
                                     </div>
                                 </div>
-                            </div>
-                            
+                            </Link>
+                            </>
                         ))}
                         </div>
 
