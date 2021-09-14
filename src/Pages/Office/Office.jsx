@@ -6,7 +6,7 @@ import api from './../../services/api';
 import { useHistory } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-const Consultor = () => {
+const Office = () => {
     const history = useHistory();
 
 
@@ -34,12 +34,12 @@ const Consultor = () => {
 
                 <ConsultorHeader currentStep={'office'}/>
 
-                <main className= 'container-fluid row v-100 d-flex justify-content-start flex-column align-items-center flex-lg-row'>
-                    <img className='img-fluid w-md-25 col-lg-8 col-10' src={Img} alt='Colegas conversando de forma descontraída no escritório.' />
+                <main className= 'container-fluid row w-100 d-flex justify-content-start flex-column align-items-center flex-lg-row'>
+                    <img className='img-fluid w-md-25 col-lg-8 col-10' src={ Img } alt='Colegas conversando de forma descontraída no escritório.' />
 
                     <div className='container-fluid col-lg-4 flex-column justify-content-evenly align-items-start mt-3'>
                         
-                        <div className="col-md-12 mb-3">
+                        <div className="col-md-12 mb-3 ms-2 fw__medium">
                             <p>Em qual unidade FCamara você vai?</p>
                         </div>
 
@@ -87,4 +87,4 @@ const Consultor = () => {
      );
 }
  
-export default Consultor;
+export default Office;

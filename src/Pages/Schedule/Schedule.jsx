@@ -12,8 +12,10 @@ import api from './../../services/api';
 
 const Schedule = () => {
     
-    const currentDate = utils().getToday()
-    const [selectedDay, setSelectedDay] = useState(currentDate)
+    document.title = 'CALENDAR | Orange Desk';
+
+    const currentDate = utils().getToday();
+    const [selectedDay, setSelectedDay] = useState(currentDate);
     
     const handleMaximumDate = () =>  {
         return {year: currentDate.year, month: currentDate.month + 1, day: currentDate.day};
@@ -56,7 +58,7 @@ const Schedule = () => {
 
                         <p className='text-black mt-3 mb-lg-4'>Quais os dias que você precisa ir ao escritório?</p>
 
-                        <img className='img-fluid mt-4 col-lg-10 image' src={ Img }/>
+                        <img className='img-fluid mt-4 col-lg-10 image' src={ Img } alt='Pessoas diversificadas trabalhando no escritório.'/>
                     </div>
 
                     <div>
@@ -70,10 +72,10 @@ const Schedule = () => {
                         />
 
                         <div className="g-col-5 align-self-start mt-2 mb-2 w-100">
-                            <span>
-                                Dia {selectedDay.day < 10 ? `0${selectedDay.day}` : selectedDay.day}/{selectedDay.month < 10 ? `0${selectedDay.month}` : selectedDay.month} - 
+                            <span className='fw__light text-blue'>
+                                Dia {selectedDay.day < 10 ? `0${selectedDay.day} - ` : selectedDay.day}/{selectedDay.month < 10 ? `0${selectedDay.month} - ` : selectedDay.month}
                             </span>
-                            <span>
+                            <span className='fw__extra-bold text-blue'>
                                 {25} mesas disponíveis
                             </span>
         
