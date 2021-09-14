@@ -1,10 +1,15 @@
 // Importing modules:
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+=======
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+>>>>>>> c656e0971cc636b1ebe86d17fac53e71bb176acc
 
 // Import components:
-import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader'
-import DesksLayoutImg from './../../Assets/desks-layout.svg'
+import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader';
+import DesksLayoutImg from './../../Assets/desks-layout.svg';
 
 
 // Importing style-sheets:
@@ -26,14 +31,14 @@ const SelectDesk = () => {
     useEffect(() => {
         const btnSelectDesk = document.getElementById('btnSelectDesk')
         if ((value !== '' && value !== undefined) && value.length <= 2 && (Number(value) >= 1 && Number(value) <= 40)) {
-            btnSelectDesk.removeAttribute('disabled')
-            btnSelectDesk.setAttribute('style', 'background-color: #FE4400; color: white')
+            btnSelectDesk.removeAttribute('disabled');
+            btnSelectDesk.setAttribute('style', 'btn-orange');
         }
         else {
             btnSelectDesk.setAttribute('disabled', '')
-            btnSelectDesk.setAttribute('style', 'background-color: #EAEAEA; color: #6A6A6A')
+            btnSelectDesk.setAttribute('style', 'background-color: var(--grey); color: var(--dark-grey); border-color: var(--grey)')
         }
-    }, [HandleChange])
+    }, [HandleChange]);
 
     const submit = () => {
         localStorage.setItem('desk', value)
@@ -43,23 +48,23 @@ const SelectDesk = () => {
     return (
         <React.Fragment>
 
-            <div className="container-fluid vh-100">
-
+            <div className="container-lg d-flex flex-column justify-content-start bg-white container vw-100 vh-100">
                 <ConsultorHeader currentStep={'desk'} />
-                <div className="container mt-md-0 mt-3 mb-md-0 mb-3 text-center">
-                    <div className="row">
-                        <p className='d-md-none d-block'>Escolha sua estação de trabalho</p>
-                        <div className="col-md-8 col-12 text-md-start">
-                            <img className='img-fluid w-75' src={DesksLayoutImg} alt="Imagem com layout das mesas" />
-                        </div>
+                
+                <main className="mt-1 mt-md-5 d-flex flex-column flex-lg-row justify-content-center align-items-center">
+                    <div className="container-lg d-flex flex-column flex-lg-row justify-content-around align-items-start">
+                        <p className='d-md-block text-start text-md-center col-md-8 fw__medium d-lg-none ms-auto me-auto text-black mt-4 mb-md-3 mt-lg-5'>Escolha sua estação de trabalho</p>
+
+                        <img className='img-fluid mt-4 ms-auto me-auto col-lg-4' src={ DesksLayoutImg } alt='Imagem ilustrando layout de um escritório FCamara.'/>
 
                         <div className='col-md-4 col-12 mt-md-5 mt-3'>
                             <h5 className='d-md-block d-none mb-md-3'>Escolha sua estação de trabalho</h5>
+
                             <input onChange={HandleChange}
                                 type='number'
                                 style={inputStyle}
-                                className='text-center form-control border-0 shadow-none'
-                                placeholder='Digite o nº da mesa (01 a 40)'
+                                className='text-start fw__light form mt-lg-5 form-control shadow-none'
+                                placeholder='Digite o nº da mesa que quer reservar'
                                 min='1'
                                 max='40'
                                 required />
@@ -81,7 +86,7 @@ const SelectDesk = () => {
                             </button>
                         </div>
                     </div>
-                </div>
+                </main>
 
             </div>
 
