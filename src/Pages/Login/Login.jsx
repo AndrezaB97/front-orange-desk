@@ -24,12 +24,16 @@ const Login = () => {
 
     const onSubmit = async data => {
         try {
-            await api.post('/users', data);
-            toast.success("Empresa cadastrada com sucesso!", {
+            var response = await api.post('/sessions', data);
+
+            toast.success("Bem vindo!", {
                 position: toast.POSITION.TOP_RIGHT
             });
+
+            localStorage.setItem('token', response.data.token);
+
+            history.push("office/");
         } catch (err) {
-            console.log(err.response.data);
             toast.error(err.response.data[0].message, {
                 position: toast.POSITION.TOP_RIGHT
             });

@@ -107,7 +107,7 @@ html {
   padding: 1.5rem;
 
   color: var(--white);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 16px;
   text-decoration: none;
@@ -137,7 +137,7 @@ html {
   padding: 1.5rem;
   
   color: var(--blue);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 16px;
   text-decoration: none;
@@ -186,6 +186,10 @@ html {
   color: var(--orange);
 }
 
+.text-dark-orange {
+  color: var(--dark-orange);
+}
+
 .text-blue {
   color: var(--blue);
 }
@@ -204,6 +208,13 @@ html {
 
 .fs-12 {
   font-size: 12px;
+}
+
+@media screen and (min-width: 768px) {
+
+  .md-fs-16 {
+    font-size: 16px;
+  }
 }
 
 /* ------------------------------------- */

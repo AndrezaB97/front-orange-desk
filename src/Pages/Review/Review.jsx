@@ -1,12 +1,89 @@
 // Importing modules:
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
+import api from './../../services/api';
+import { toast, ToastContainer } from 'react-toastify';
+import moment from 'moment';
+import { useHistory } from 'react-router-dom';
 
 import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 
 const Review = () => {
 
-    document.title = 'REVIEW | Orange Desk';    
+    document.title = 'REVIEW | Orange Desk';
+    
+    const { handleSubmit, register, formState: { errors } } = useForm();
+    const date = (new Date(localStorage.getItem('date'))).toLocaleDateString('pt-BR', {timeZone: 'UTC'});
+
+    var dateRequest = new Date(localStorage.getItem('date'));
+
+    dateRequest = moment(dateRequest).format("YYYY-MM-DD");
+
+    const desk = localStorage.getItem('desk');
+    const unityId = localStorage.getItem('unity_id');
+
+    const [unity, setUnity] = useState([]);
+    const [auth, setAuth] = useState({});
+
+    const history = useHistory()
+
+    var config = {
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    }
+
+    const onSubmit = async () => {
+        try {
+
+            console.log(dateRequest);
+
+            const data = {unity_id: unityId, desk: desk, date: dateRequest}
+
+            await api.post('/reserve', data, config);
+
+            toast.success("Reserva feita com sucesso!", {
+                position: toast.POSITION.TOP_RIGHT
+            });
+            
+            history.push("/confirmation");
+        } catch (err) {
+            console.log(err.response.data);
+            toast.error(err.response.data[0].message, {
+                position: toast.POSITION.TOP_RIGHT
+            });
+        }
+    };
+
+    useEffect(() => {
+        async function getUnities() {
+            try {
+              const { data } = await api.get(`/unity/${unityId}`);
+              setUnity(data);
+            } catch (error) {
+              toast.error("Erro ao buscar unidades", {
+                  position: toast.POSITION.TOP_RIGHT
+              });
+            }
+        }
+
+        async function getAuthUser() {
+
+            try {
+              const { data } = await api.get(`/auth/`, config);
+                console.log(data);
+                setAuth(data);
+            } catch (error) {
+              toast.error("Erro ao buscar unidades", {
+                  position: toast.POSITION.TOP_RIGHT
+              });
+            }
+        }
+
+        // auth
+        getUnities();
+        getAuthUser();
+      }, []);
 
     return (
 
@@ -21,8 +98,8 @@ const Review = () => {
                         <p className='text-black mt-4 mt-lg-5 text-center'>Confira as informações</p>
 
                         <div className='mt-4 ms-4'>
-                            <h4 className='text-black fw__medium'>Jéssica da Silva</h4>
-                            <p className='text-grey fw__light'>jessicasilva@fcamara.com.br</p>
+                            <h4 className='text-black fw__medium'>{ auth.name }</h4>
+                            <p className='text-grey fw__light'>{ auth.email }</p>
                         </div>
 
                         <div className='mt-4 ms-4 me-4'>
@@ -32,38 +109,35 @@ const Review = () => {
                             </div>
 
                             <div className='d-flex justify-content-between text-blue fw__bold'>
-                                <h4>15/09/2021</h4>
-                                <h4>24</h4>
+                                <h4>{ date }</h4>
+                                <h4>{ desk }</h4>
                             </div>
 
                             <div className='mt-3'>
                                 <p className='text-grey fw__light'>unidade</p>
-                                <p className='text-black'>Sede - São Paulo</p>
+                                <p className='text-black'>{ unity.is_main ? 'Sede' : 'Filial' } - { unity?.address?.city }</p>
                                 <p className='text-black fs-12 fw__light'>
-                                    Rua Bela Cintra, 986 - 2° andar<br />
-                                    Consolação, São Paulo - SP
+                                    { unity?.address?.road }, { unity?.address?.number } - 2° andar<br/>
+                                    { unity?.address?.district }, { unity?.address?.city } - { unity?.address?.state }
                                 </p>
                             </div>
 
                             <div>
-                                <form className='mt-5'>
-                                    <div className='container p-0'>
-                                        <div className="row align-items-center">
-                                            <div className="col-2 text-center">
-                                                <input type='checkbox'
-                                                    id='btnCheck'
-                                                    className={'fw__light checkbox-size shadow-none'}
-                                                    required />
-                                            </div>
-                                            <div className="col-10">
-                                                <label for='' className='text-grey fs-10 fw__light'>
-                                                    Eu me comprometo a respeitar as regras de distanciamento e os demais protocolos com o objetivo de combater a disseminação do coronavírus.
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <button id='btnConfirm' className='btn-orange w-100 mt-3 mb-2'>Confirmar agendamento</button>
+                                <form className='mt-5' onSubmit={ handleSubmit(onSubmit) }>
+                                    <div className='d-flex'>
+                                        <input type={'checkbox'}
+                                                value={ true } 
+                                                checked="checked"
+                                                className={'form-control me-4 fw__light checkbox-size shadow-none'} 
+                                                name={register('checkbox', { required: true })} />
+                                        <label className='text-grey fs-10 fw__light d-flex justify-space-between'>
+                                            Eu me comprometo a respeitar as regras de distanciamento e os demais protocolos com o objetivo de combater a disseminação do coronavírus.
+                                            {errors.password && errors.password.type === "required" && <span className="text-danger">Campo obrigatório</span>}
+                                        </label>
+                                    
+                                    </div>            
+                        
+                                    <button id='btnRegister' onClick={onSubmit} className='btn-orange w-100 mt-3 mb-2'>Confirmar agendamento</button>
                                 </form>
                             </div>
                         </div>
@@ -72,6 +146,7 @@ const Review = () => {
                 </main>
 
             </div>
+            <ToastContainer />
         </React.Fragment>
 
     );
