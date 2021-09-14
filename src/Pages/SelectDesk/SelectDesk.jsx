@@ -68,7 +68,7 @@ const SelectDesk = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Link to='/' className='text-decoration-none'>
+                            <Link to='/review' className='text-decoration-none'>
                                 <button id='btnSelectDesk' className='form-control text-center btn-orange shadow-none mb-3' disabled >
                                     Escolher estação de trabalho
                                 </button>

@@ -1,52 +1,54 @@
 // Importing modules:
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom';
 
 // Import components:
-import SignsImg from './../../Assets/signs.svg'
-import NumeredDeskImg from './../../Assets/numered-desk.svg'
-import { FiArrowLeftCircle } from 'react-icons/fi'
-import { FiThumbsUp } from 'react-icons/fi'
-import Logo from './../../Assets/logo-Orange-Desk.svg'
-
-// Importing style-sheets:
-import './DeskInstructions.css'
+import SignsImg from './../../Assets/signs.svg';
+import NumeredDeskImg from './../../Assets/numered-desk.svg';
+import { FiArrowLeftCircle } from 'react-icons/fi';
+import Logo from './../../Assets/logo-Orange-Desk.svg';
 
 const DeskInstructions = () => {
+
+    document.title = 'INSTRUCTIONS | Orange Desk;'
 
     const history = useHistory()
 
     return (
         <React.Fragment>
 
-            <div className="container-fluid d-flex flex-column vh-100">
-                <header className='container d-flex justify-content-between mt-3'>
-                    <button className='bg-white'>
-                        <FiArrowLeftCircle size='24' color='#FE885C' onClick={() => history.goBack()} />
-                    </button>
-                    <Link to='/'>
-                        <img className='img-fluid' style={{width: '2.938rem', height: '2.638rem'}} src={Logo} alt="Logotipo OrangeDesk" />
+            <div className="container-lg d-flex flex-column justify-content-start bg-white container vw-100 vh-100">
+                <header className='col-lg-10 col-11 container-fluid d-flex justify-content-between align-items-center mb-4 mt-3 mt-lg-4'>
+                    <FiArrowLeftCircle className='icon-size col-2 bg-white' color='#6A6A6A' onClick={() => history.goBack()} />
+                
+                    <Link className='col-3 col-md-2 col-lg-1' to='/'>
+                        <img className='img-fluid p-2' src={ Logo } alt='Logotipo FCamara'/>
                     </Link>
                 </header>
 
-                <div className="container d-flex h-100 mt-md-0 mt-3">
-                    <div className="row align-self-md-center text-md-start text-center">
-                        <p className='mb-md-5'>Nessa etapa você vai escolher o andar e o número da mesa que irá ocupar.</p>
-                        <h4 style={{color: '#B93200'}}>Mas fique tranquilo!</h4>
-                        <div className='col-md-6 col-12 d-md-flex'>
-                            <p>Quando chegar no escritório, as placas vão te orientar.</p>
-                            <img src={SignsImg} className='img-fluid' alt="Pessoa lendo placas de orientação" />
-                        </div>
-                        <div className='col-md-6 col-12 d-md-flex mt-md-0 mt-3'>
-                            <p>E você encontrará sua mesa numerada.</p>
-                            <img src={NumeredDeskImg} className='img-fluid' alt="Mesa laranja com objetos em cima" />
-                        </div>
-                        <Link to='/#' id='btnLike' className='btnLink d-md-none d-flex justify-content-center align-items-center rounded'>
-                            <FiThumbsUp size='1.5rem' />
-                        </Link>
-                        <Link to='/#' id='btnContinue' className='btnLink d-none d-md-block mt-3 form-control border-0 shadow-none text-center text-decoration-none'>Continuar</Link>
+                <main className="row vw-100 container-lg d-flex flex-column mt-md-4">
+                    <div className='vw-100 ms-auto me-auto'>
+                        <p className='text-start text-md-center text-black md-fs-16 fs-12 fw__light'>Nessa etapa você vai escolher o andar e o número da mesa que irá ocupar.</p>
+                        <h4 className='text-dark-orange text-start text-md-center fw__bold mt-1'>Mas fique tranquilo!</h4>
                     </div>
-                </div>
+
+                    <div className='d-md-flex flex-md-row col-md-11 col-lg-8 justify-content-md-between ms-auto me-auto mt-md-5'>
+                        <div className='text-black fw__light mt-1 d-flex flex-column justify-content-md-start align-items-center'>
+                            <p className='col-md-8'>Quando chegar no escritório, as placas vão te orientar.</p>
+                            <img src={ SignsImg } className='img-fluid mt-3 col-8' alt="Pessoa lendo placas de orientação" />
+                        </div>
+                        <div className='text-black fw__light mt-1 d-flex flex-column justify-content-md-start align-items-center'>
+                            <p className='col-md-8'>E você encontrará sua mesa numerada.</p>
+                            <img src={NumeredDeskImg} className='img-fluid mt-3 col-10' alt="Mesa laranja com objetos de escritório em cima." />
+                        </div>
+                    </div>
+                    
+                    <div className='col-md-10 col-lg-8 mt-md-5 align-self-center'>
+                        <Link to='/desks' id='btnContinue' className='text-center btn-orange form-control shadow-none'>
+                            Obrigado (a) por avisar!
+                        </Link>
+                    </div>
+                </main>
             </div>
 
         </React.Fragment>
