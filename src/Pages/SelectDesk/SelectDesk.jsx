@@ -1,10 +1,10 @@
 // Importing modules:
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // Import components:
-import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader'
-import DesksLayoutImg from './../../Assets/desks-layout.svg'
+import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader';
+import DesksLayoutImg from './../../Assets/desks-layout.svg';
 
 // Importing style-sheets:
 
