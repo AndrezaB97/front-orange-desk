@@ -1,11 +1,6 @@
 // Importing modules:
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-=======
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
->>>>>>> c656e0971cc636b1ebe86d17fac53e71bb176acc
 
 // Import components:
 import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader';
