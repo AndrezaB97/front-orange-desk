@@ -72,14 +72,9 @@ const Office = () => {
                                         { console.log(item.is_main) }
                                         { item.is_main === 1 ? 'sede' : 'filial' }                             
 
-                                        <h1 className='mt-3 fs-4 fw__bold text-orange'>SÃO PAULO</h1>
-                                        <p className='fs-10 fw__light text-black col-11'>
-                                            Rua Bela Cintra, 986 - 2° andar<br/>
-                                            Consolação, São Paulo - SP
-                                        </p>
+                                        
                                     </div>
 
-                                    <div className="text-end fs-1 fw__bold text-blue">sede</div>
                                 </div>
                             </div>
                         ))}
