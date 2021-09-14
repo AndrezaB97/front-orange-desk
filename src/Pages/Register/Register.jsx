@@ -24,8 +24,8 @@ const Register = () => {
 
   const onSubmit = async data => {
     try {
-      await api.post('/users', data);
-      toast.success("Empresa cadastrada com sucesso!", {
+      await api.post('/register', data);
+      toast.success("Usuário cadastrado com sucesso!", {
         position: toast.POSITION.TOP_RIGHT
       });
     } catch (err) {

@@ -19,9 +19,6 @@ import Adm from './Pages/Adm/Adm';
 
 // Importing style-sheets:
 import './style/App.css';
-import './style/global-style.css';
-import AdmLogin from './Pages/AdmLogin';
-
 
 function App() {
   return (
@@ -41,7 +38,6 @@ function App() {
           <Route path='/confirmation' exact component={ Confirmation } />
           <Route path="/adm/criar" exact component={ Adm } />
           <Route path="/adm/home" exact component={ HomeAdm } />
-          <Route path="/adm/login" exact component={ AdmLogin } />
         </Switch>
         
       </Router>
