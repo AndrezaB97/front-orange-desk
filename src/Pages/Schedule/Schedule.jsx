@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+
 
 import { Calendar, utils } from 'react-modern-calendar-datepicker';
 import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader';
@@ -11,6 +13,7 @@ import Img from './../../Assets/calendar-img.svg';
 import api from './../../services/api';
 
 const Schedule = () => {
+    const history = useHistory();
     
     document.title = 'CALENDAR | Orange Desk';
 
@@ -24,6 +27,8 @@ const Schedule = () => {
     const confirmData = () => {
         let date = new Date(`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`);
         localStorage.setItem('date', date);
+
+        history.push("/desks");
     }
 
     const [unity, setUnity] = useState({});

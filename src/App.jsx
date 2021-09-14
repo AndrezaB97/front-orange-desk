@@ -31,7 +31,7 @@ function App() {
           <Route path='/register' exact component={ Register } />
           <Route path='/login' exact component={ Login } />
           <Route path="/office" exact component={ Office } />
-          <Route path="/office/schedule/:office" exact component={ Schedule } />
+          <Route path="/office/schedule/" exact component={ Schedule } />
           <Route path='/instructions'exact component={ DeskInstructions } />
           <Route path='/desks' exact component={ SelectDesk } />
           <Route path='/review' exact component={ Review } />

@@ -31,6 +31,8 @@ const Login = () => {
             });
 
             localStorage.setItem('token', response.data.token);
+
+            history.push("office/");
         } catch (err) {
             toast.error(err.response.data[0].message, {
                 position: toast.POSITION.TOP_RIGHT

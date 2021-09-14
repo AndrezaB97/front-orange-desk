@@ -51,7 +51,7 @@ const Office = () => {
                             onClick={() => {
                                 localStorage.setItem('unity_id', item.id);
                                 console.log(localStorage.getItem('unity_id'));
-                                history.push("/consultor/schedule/");
+                                history.push("/office/schedule/");
                             }} 
                             >
                                 <div className="container d-flex flex-row justify-content-between 

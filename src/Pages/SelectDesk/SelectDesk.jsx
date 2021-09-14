@@ -1,14 +1,16 @@
 // Importing modules:
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 // Import components:
 import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader'
 import DesksLayoutImg from './../../Assets/desks-layout.svg'
 
+
 // Importing style-sheets:
 
 const SelectDesk = () => {
+    const history = useHistory()
 
     const inputStyle = {
         backgroundColor: '#F4F4F4'
@@ -33,6 +35,11 @@ const SelectDesk = () => {
         }
     }, [HandleChange])
 
+    const submit = () => {
+        localStorage.setItem('desk', value)
+        history.push("review/");
+    }
+
     return (
         <React.Fragment>
 
@@ -46,7 +53,7 @@ const SelectDesk = () => {
                             <img className='img-fluid w-75' src={DesksLayoutImg} alt="Imagem com layout das mesas" />
                         </div>
 
-                        <form className='col-md-4 col-12 mt-md-5 mt-3'>
+                        <div className='col-md-4 col-12 mt-md-5 mt-3'>
                             <h5 className='d-md-block d-none mb-md-3'>Escolha sua estação de trabalho</h5>
                             <input onChange={HandleChange}
                                 type='number'
@@ -69,12 +76,10 @@ const SelectDesk = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Link to='/' className='text-decoration-none'>
-                                <button id='btnSelectDesk' className='form-control border-0 shadow-none mb-md-0 mb-3' disabled >
-                                    Escolher estação de trabalho
-                                </button>
-                            </Link>
-                        </form>
+                            <button id='btnSelectDesk' onClick={ submit } className='form-control border-0 shadow-none mb-md-0 mb-3'  >
+                                Escolher estação de trabalho
+                            </button>
+                        </div>
                     </div>
                 </div>
 
