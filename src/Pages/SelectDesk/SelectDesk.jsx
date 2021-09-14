@@ -1,11 +1,6 @@
 // Importing modules:
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
-=======
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
->>>>>>> c656e0971cc636b1ebe86d17fac53e71bb176acc
+import { Link, useHistory } from 'react-router-dom';
 
 // Import components:
 import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader';
@@ -25,18 +20,20 @@ const SelectDesk = () => {
         color: '#404099'
     }
 
-    const [value, setValue] = useState('')
-    const HandleChange = (e) => setValue(e.target.value)
+    const [value, setValue] = useState('');
+    const HandleChange = (e) => setValue(e.target.value);
 
     useEffect(() => {
-        const btnSelectDesk = document.getElementById('btnSelectDesk')
+        const btnSelectDesk = document.getElementById('btnSelectDesk');
         if ((value !== '' && value !== undefined) && value.length <= 2 && (Number(value) >= 1 && Number(value) <= 40)) {
             btnSelectDesk.removeAttribute('disabled');
-            btnSelectDesk.setAttribute('style', 'btn-orange');
+            btnSelectDesk.classList.add('btn-orange');
+            btnSelectDesk.removeAttribute('style');
         }
         else {
-            btnSelectDesk.setAttribute('disabled', '')
-            btnSelectDesk.setAttribute('style', 'background-color: var(--grey); color: var(--dark-grey); border-color: var(--grey)')
+            btnSelectDesk.setAttribute('disabled', '');
+            btnSelectDesk.setAttribute('style', 'background-color: var(--grey); color: var(--dark-grey); border-color: var(--grey)');
+            btnSelectDesk.classList.remove('btn-orange');
         }
     }, [HandleChange]);
 
@@ -81,7 +78,7 @@ const SelectDesk = () => {
                                     </div>
                                 </div>
                             </div>
-                            <button id='btnSelectDesk' onClick={ submit } className='form-control border-0 shadow-none mb-md-0 mb-3'  >
+                            <button disabled id='btnSelectDesk' onClick={ submit } className='btn-orange form-control border-0 shadow-none mb-md-0 mb-3'  >
                                 Escolher estação de trabalho
                             </button>
                         </div>
