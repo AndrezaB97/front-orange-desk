@@ -81,21 +81,7 @@ const Office = () => {
 
                                     <div className="text-end fs-1 fw__bold text-blue">sede</div>
                                 </div>
-                            </Link>
-
-                            <Link className='card hover btn w-100 m-md-1 mb-2' to={ `office/schedule/${JSON.stringify(office)}` } onClick={ () => {setOffice('santos')} }>
-                                <div className="container d-flex flex-row justify-content-between align-items-center bg-orange p-3 rounded text-white">
-                                    <div className="text-start">
-                                        <h1 className='mt-3 fs-4 fw__bold text-orange'>SANTOS</h1>
-                                        <p className='fs-10 col-md-10 fw__light text-black col-11'>
-                                            Praça dos Expedicionários, 19 - 2° andar<br/>
-                                            Gonzaga, Santos - SP
-                                        </p>
-
-                                    </div>
-                                </div>
                             </div>
-                            
                         ))}
                         </div>
 
