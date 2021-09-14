@@ -1,15 +1,12 @@
 // Importing modules:
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 
 const Review = () => {
 
-    document.title = 'REVIEW | Orange Desk';
-
-    const { handleSubmit, register, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    document.title = 'REVIEW | Orange Desk';    
 
     return (
 
@@ -49,14 +46,14 @@ const Review = () => {
                             </div>
 
                             <div>
-                                <form className='mt-5' onSubmit={handleSubmit(onSubmit)}>
+                                <form className='mt-5'>
                                     <div className='container p-0'>
                                         <div className="row align-items-center">
-                                            <div className="col-2">
+                                            <div className="col-2 text-center">
                                                 <input type='checkbox'
                                                     id='btnCheck'
-                                                    className={'fw__light checkbox-size shadow-none'} 
-                                                    {...register('teste', { required: true })} />
+                                                    className={'fw__light checkbox-size shadow-none'}
+                                                    required />
                                             </div>
                                             <div className="col-10">
                                                 <label for='' className='text-grey fs-10 fw__light'>
@@ -64,11 +61,9 @@ const Review = () => {
                                                 </label>
                                             </div>
                                         </div>
-
                                     </div>
-                                    {errors.teste && errors.teste.type === "required" && <span className="text-danger">Campo obrigatório</span>}
 
-                                    <button id='btnRegister' className='btn-orange w-100 mt-3 mb-2'>Confirmar agendamento</button>
+                                    <button id='btnConfirm' className='btn-orange w-100 mt-3 mb-2'>Confirmar agendamento</button>
                                 </form>
                             </div>
                         </div>
