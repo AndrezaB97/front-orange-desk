@@ -19,12 +19,9 @@ import Adm from './Pages/Adm/Adm';
 
 // Importing style-sheets:
 import './style/App.css';
-<<<<<<< HEAD
 import './style/global-style.css';
 import AdmLogin from './Pages/AdmLogin';
 
-=======
->>>>>>> 3ef98f3ca2f20102db51ab72be678c7b9f588f5d
 
 function App() {
   return (
