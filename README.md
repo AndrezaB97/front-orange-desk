@@ -7,10 +7,10 @@
 <br/>
 
 <p align='center'>
-  <a href='projeto'>Projeto</a> | 
-  <a href='tech'>Tecnologias</a> | 
-  <a href='layout'>Layout</a> | 
-  <a href='colab'>Colaboradores</a>
+  <a href='#projeto'>Projeto</a> | 
+  <a href='#tech'>Tecnologias</a> | 
+  <a href='#layout'>Layout</a> | 
+  <a href='#colab'>Colaboradores</a>
 </p>
 
 <br/>
