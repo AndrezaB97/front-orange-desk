@@ -85,18 +85,18 @@ const Review = () => {
         getAuthUser();
       }, []);
 
-    return ( 
+    return (
 
         <React.Fragment>
             <div className="container-lg container-md d-flex flex-column justify-content-start bg-white container vw-100 vh-100">
 
-                <ConsultorHeader currentStep={ 'review' } />
+                <ConsultorHeader currentStep={'review'} />
 
-                <main clasName= 'container-lg row w-100 d-flex justify-content-start flex-column align-items-center flex-lg-row'>
-                    
+                <main clasName='container-lg row w-100 d-flex justify-content-start flex-column align-items-center flex-lg-row'>
+
                     <div className='col-lg-6 col-md-10 ms-auto me-auto'>
                         <p className='text-black mt-4 mt-lg-5 text-center'>Confira as informações</p>
-                
+
                         <div className='mt-4 ms-4'>
                             <h4 className='text-black fw__medium'>{ auth.name }</h4>
                             <p className='text-grey fw__light'>{ auth.email }</p>
@@ -149,7 +149,7 @@ const Review = () => {
             <ToastContainer />
         </React.Fragment>
 
-     );
+    );
 }
- 
+
 export default Review;

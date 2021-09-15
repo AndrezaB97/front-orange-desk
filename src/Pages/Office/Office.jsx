@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react';
 import ConsultorHeader from '../../Components/ConsultorHeader/ConsultorHeader';
 import Img from './../../Assets/consultor-page.svg';
 import api from './../../services/api';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Office = () => {
     const history = useHistory();
 
-
+    const [office, setOffice] = useState('');
     const [cardData, setCardData] = useState([]);
 
     useEffect(() => {
@@ -77,6 +77,7 @@ const Office = () => {
 
                                 </div>
                             </div>
+                            
                         ))}
                         </div>
 

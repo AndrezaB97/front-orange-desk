@@ -21,19 +21,22 @@ const SelectDesk = () => {
         color: '#404099'
     }
 
+    const [toggle, setToggle] = useState(false)
     const [value, setValue] = useState('')
     const [desks, setDesks] = useState([])
     const HandleChange = (e) => setValue(e.target.value)
 
     useEffect(() => {
-        const btnSelectDesk = document.getElementById('btnSelectDesk')
+        const btnSelectDesk = document.getElementById('btnSelectDesk');
         if ((value !== '' && value !== undefined) && value.length <= 2 && (Number(value) >= 1 && Number(value) <= 40)) {
             btnSelectDesk.removeAttribute('disabled');
-            btnSelectDesk.setAttribute('style', 'btn-orange');
+            btnSelectDesk.classList.add('btn-orange');
+            btnSelectDesk.removeAttribute('style');
         }
         else {
-            btnSelectDesk.setAttribute('disabled', '')
-            btnSelectDesk.setAttribute('style', 'background-color: var(--grey); color: var(--dark-grey); border-color: var(--grey)')
+            btnSelectDesk.setAttribute('disabled', '');
+            btnSelectDesk.setAttribute('style', 'background-color: var(--grey); color: var(--dark-grey); border-color: var(--grey)');
+            btnSelectDesk.classList.remove('btn-orange');
         }
     }, [HandleChange]);
 
@@ -94,8 +97,10 @@ const SelectDesk = () => {
                             <div class="accordion accordion-flush mt-3 mb-5" id="accordionFlush">
                                 <div class="accordion-item text-center">
                                     <p class="accordion-header" id="flush-showDesks">
-                                        <button style={accordionHeader} onClick={ getDesks } class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Mostrar mesas disponíveis
+                                        <button onClick={() => {setToggle(!toggle)}} onClick={ getDesks } style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            {toggle ? <span>Ocultar mesas disponíveis</span> : <span>Mostrar mesas disponíveis</span>}
+                                        {/* <button style={accordionHeader} onClick={ getDesks } class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Mostrar mesas disponíveis */}
                                         </button>
                                     </p>
                                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-showDesks" data-bs-parent="#accordionFlush">
@@ -109,7 +114,7 @@ const SelectDesk = () => {
                                     </div>
                                 </div>
                             </div>
-                            <button id='btnSelectDesk' onClick={ submit } className='form-control border-0 shadow-none mb-md-0 mb-3'  >
+                            <button disabled id='btnSelectDesk' onClick={ submit } className='btn-orange form-control border-0 shadow-none mb-md-0 mb-3'  >
                                 Escolher estação de trabalho
                             </button>
                         </div>
