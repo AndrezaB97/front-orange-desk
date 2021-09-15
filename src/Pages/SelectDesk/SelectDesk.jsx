@@ -1,11 +1,12 @@
 // Importing modules:
-import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 // Import components:
 import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader';
 import DesksLayoutImg from './../../Assets/desks-layout.svg';
-
+import { toast, ToastContainer } from 'react-toastify';
+import api from './../../services/api';
 
 // Importing style-sheets:
 
@@ -20,9 +21,10 @@ const SelectDesk = () => {
         color: '#404099'
     }
 
-    const [toggle, setToggle] = useState(false);
-    const [value, setValue] = useState('');
-    const HandleChange = (e) => setValue(e.target.value);
+    const [toggle, setToggle] = useState(false)
+    const [value, setValue] = useState('')
+    const [desks, setDesks] = useState([])
+    const HandleChange = (e) => setValue(e.target.value)
 
     useEffect(() => {
         const btnSelectDesk = document.getElementById('btnSelectDesk');
@@ -41,6 +43,31 @@ const SelectDesk = () => {
     const submit = () => {
         localStorage.setItem('desk', value)
         history.push("review/");
+    }
+
+    async function getDesks() {
+        var config = {
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          }
+          }
+
+        var dataDesk = {
+            date: localStorage.getItem('date_desk'),
+            unity_id: localStorage.getItem('unity_id')
+        };
+
+        try {
+          const { data } = await api.post(`/desk_available_number/`, dataDesk, config);
+          setDesks(data);
+
+        } catch (error) {
+          toast.error("Erro ao buscar mesas disponíveis", {
+              position: toast.POSITION.TOP_RIGHT
+          });
+        }
+
+        console.log(desks.length);
     }
 
     return (
@@ -70,12 +97,20 @@ const SelectDesk = () => {
                             <div class="accordion accordion-flush mt-3 mb-5" id="accordionFlush">
                                 <div class="accordion-item text-center">
                                     <p class="accordion-header" id="flush-showDesks">
-                                        <button onClick={() => setToggle(!toggle)} style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                        <button onClick={() => {setToggle(!toggle)}} onClick={ getDesks } style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                             {toggle ? <span>Ocultar mesas disponíveis</span> : <span>Mostrar mesas disponíveis</span>}
+                                        {/* <button style={accordionHeader} onClick={ getDesks } class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Mostrar mesas disponíveis */}
                                         </button>
                                     </p>
                                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-showDesks" data-bs-parent="#accordionFlush">
-                                        <div class="accordion-body">01 | 02 | 03</div>
+                                        <div class="accordion-body">
+                                            {
+                                                desks?.map(element => {
+                                                    return (element + " | ");
+                                                })
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -87,6 +122,8 @@ const SelectDesk = () => {
                 </main>
 
             </div>
+
+            <ToastContainer />
 
         </React.Fragment>
     )

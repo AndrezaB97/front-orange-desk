@@ -1,6 +1,9 @@
 {
   "name": "front-orange-desk",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.16.0"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.12.3",
@@ -9,6 +12,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.2",
     "bootstrap": "^5.1.0",
+    "express-favicon": "^2.0.1",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.6",
@@ -26,7 +30,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

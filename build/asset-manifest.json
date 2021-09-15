@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.edd01d3d.chunk.css",
+    "main.js": "/static/js/main.deaad606.chunk.js",
+    "main.js.map": "/static/js/main.deaad606.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.db362cb6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.db362cb6.js.map",
+    "static/css/2.108f0340.chunk.css": "/static/css/2.108f0340.chunk.css",
+    "static/js/2.9e3dcafd.chunk.js": "/static/js/2.9e3dcafd.chunk.js",
+    "static/js/2.9e3dcafd.chunk.js.map": "/static/js/2.9e3dcafd.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.108f0340.chunk.css.map": "/static/css/2.108f0340.chunk.css.map",
+    "static/css/main.edd01d3d.chunk.css.map": "/static/css/main.edd01d3d.chunk.css.map",
+    "static/js/2.9e3dcafd.chunk.js.LICENSE.txt": "/static/js/2.9e3dcafd.chunk.js.LICENSE.txt",
+    "static/media/calendar-img.3d87f977.svg": "/static/media/calendar-img.3d87f977.svg",
+    "static/media/confirmation-page.32d64e54.svg": "/static/media/confirmation-page.32d64e54.svg",
+    "static/media/consultor-page.1a089ab4.svg": "/static/media/consultor-page.1a089ab4.svg",
+    "static/media/desks-layout.0d240884.svg": "/static/media/desks-layout.0d240884.svg",
+    "static/media/home-page.67276819.svg": "/static/media/home-page.67276819.svg",
+    "static/media/logo-Orange-Desk.94a03b66.svg": "/static/media/logo-Orange-Desk.94a03b66.svg",
+    "static/media/numered-desk.24b841fe.svg": "/static/media/numered-desk.24b841fe.svg",
+    "static/media/signs.18733e62.svg": "/static/media/signs.18733e62.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.db362cb6.js",
+    "static/css/2.108f0340.chunk.css",
+    "static/js/2.9e3dcafd.chunk.js",
+    "static/css/main.edd01d3d.chunk.css",
+    "static/js/main.deaad606.chunk.js"
+  ]
+}

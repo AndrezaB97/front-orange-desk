@@ -19,6 +19,7 @@ const Schedule = () => {
 
     const currentDate = utils().getToday();
     const [selectedDay, setSelectedDay] = useState(currentDate);
+    const [deskNumbers, setNumber] = useState(0);
     
     const handleMaximumDate = () =>  {
         return {year: currentDate.year, month: currentDate.month + 1, day: currentDate.day};
@@ -48,6 +49,36 @@ const Schedule = () => {
         getUnities();
       }, []);
 
+      async function getDesksAvailable(selectedDay) {
+          // desk_available
+
+          let selectedDate = `${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`;
+
+          localStorage.setItem('date_desk', selectedDate);
+
+          var config = {
+            headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+            }
+
+          setSelectedDay(selectedDay);
+
+          var dataDesk = {
+              date: selectedDate,
+              unity_id: localStorage.getItem('unity_id')
+          };
+
+          try {
+            const { data } = await api.post(`/desk_available/`, dataDesk, config);
+            setNumber(data['number']);
+          } catch (error) {
+            toast.error("Erro ao buscar mesas disponíveis", {
+                position: toast.POSITION.TOP_RIGHT
+            });
+          }
+      }
+
 
     return ( 
 
@@ -69,7 +100,7 @@ const Schedule = () => {
                     <div>
                         <Calendar
                             value={ selectedDay }
-                            onChange={ setSelectedDay }
+                            onChange={ selectedDay => getDesksAvailable(selectedDay) }
                             minimumDate={ currentDate }
                             maximumDate={ handleMaximumDate() }
                             locale='en'
@@ -81,7 +112,7 @@ const Schedule = () => {
                                 Dia {selectedDay.day < 10 ? `0${selectedDay.day} - ` : selectedDay.day}/{selectedDay.month < 10 ? `0${selectedDay.month} - ` : selectedDay.month}
                             </span>
                             <span className='fw__extra-bold text-blue'>
-                                {25} mesas disponíveis
+                                {deskNumbers} mesas disponíveis
                             </span>
         
                             <button className='btn-orange mt-lg-4 w-100' onClick={confirmData}>Confirmar data</button>

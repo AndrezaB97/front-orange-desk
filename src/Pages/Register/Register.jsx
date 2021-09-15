@@ -24,10 +24,14 @@ const Register = () => {
 
   const onSubmit = async data => {
     try {
-      await api.post('/register', data);
+      let response = await api.post('/register', data);
       toast.success("Usuário cadastrado com sucesso!", {
         position: toast.POSITION.TOP_RIGHT
       });
+
+      localStorage.setItem('token', response.data.token);
+
+      history.push("office/");
     } catch (err) {
       console.log(err.response.data);
       toast.error(err.response.data[0].message, {
