@@ -46,8 +46,8 @@ const Office = () => {
                         <div className='d-flex flex-column flex-md-row flex-lg-column w-100'>
                         
                         {cardData.map((item) => (
-                            <>
-                            <Link className='card hover btn w-100 m-md-1 mb-1' value={item.id}
+                            
+                            <div className='card hover btn w-100 m-md-1 mb-1' value={item.id}
                             onClick={() => {
                                 localStorage.setItem('unity_id', item.id);
                                 console.log(localStorage.getItem('unity_id'));
@@ -76,8 +76,8 @@ const Office = () => {
                                     </div>
 
                                 </div>
-                            </Link>
-                            </>
+                            </div>
+                            
                         ))}
                         </div>
 
