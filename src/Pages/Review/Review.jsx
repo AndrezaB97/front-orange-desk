@@ -123,21 +123,24 @@ const Review = () => {
                             </div>
 
                             <div>
-                                <form className='mt-5' onSubmit={ handleSubmit(onSubmit) }>
-                                    <div className='d-flex'>
-                                        <input type={'checkbox'}
-                                                value={ true } 
-                                                checked="checked"
-                                                className={'form-control me-4 fw__light checkbox-size shadow-none'} 
-                                                name={register('checkbox', { required: true })} />
-                                        <label className='text-grey fs-10 fw__light d-flex justify-space-between'>
-                                            Eu me comprometo a respeitar as regras de distanciamento e os demais protocolos com o objetivo de combater a disseminação do coronavírus.
-                                            {errors.password && errors.password.type === "required" && <span className="text-danger">Campo obrigatório</span>}
-                                        </label>
-                                    
-                                    </div>            
-                        
-                                    <button id='btnRegister' onClick={onSubmit} className='btn-orange w-100 mt-3 mb-2'>Confirmar agendamento</button>
+                            <form className='mt-5'>
+                                    <div className='container p-0'>
+                                        <div className="row align-items-center">
+                                            <div className="col-2 text-center">
+                                                <input type='checkbox'
+                                                    id='btnCheck'
+                                                    className={'fw__light checkbox-size shadow-none'}
+                                                    required />
+                                            </div>
+                                            <div className="col-10">
+                                                <label for='' className='text-grey fs-10 fw__light'>
+                                                    Eu me comprometo a respeitar as regras de distanciamento e os demais protocolos com o objetivo de combater a disseminação do coronavírus.
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button id='btnConfirm' className='btn-orange w-100 mt-3 mb-2'>Confirmar agendamento</button>
                                 </form>
                             </div>
                         </div>
