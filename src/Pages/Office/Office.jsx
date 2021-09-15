@@ -70,7 +70,7 @@ const Office = () => {
 
                                     <div className="text-end fs-1 fw-bold text-blue">
                                         { console.log(item.is_main) }
-                                        { item.is_main === 1 ? 'sede' : 'filial' }                             
+                                        { item.is_main == 1 ? 'sede' : 'filial' }                             
 
                                         
                                     </div>
