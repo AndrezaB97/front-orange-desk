@@ -9,6 +9,8 @@ import moment from 'moment';
 
 const MySchedules = () => {
 
+    document.title = 'MINHAS RESERVAS | Orange Desk';
+
     const history = useHistory();
     const [reserves, setReserves] = useState([]);
     const [user, setUser] = useState({});
@@ -83,19 +85,19 @@ const MySchedules = () => {
 
 
                 <div className="container-lg d-flex flex-column col-md-6">
-                    <h5 className='fw__medium'>Olá, { user.name }</h5>
-                    <p className="fs-12 fw__light text-grey">veja aqui suas reservas no OrangeDesk.</p>
+                    <h4 className=' text-black fw__medium'>Olá, { user.name }</h4>
+                    <p className="fs-12 md-fs-16 fw__light text-grey">veja aqui suas reservas no OrangeDesk.</p>
 
                     <div className="container-lg fw__bold">
 
-                        {reserves.length === 0 ? <div className='fs-4 fw__medium text-black text-center mt-5'>Você não possui reservas no momento.</div> : reserves.map(element => {
+                        {reserves.length === 0 ? <h6 className='fw__medium text-black text-center mt-5'>Você não possui reservas no momento.</h6> : reserves.map(element => {
                             return(
-                                <div style={{ backgroundColor: '#FAFAFA' }} className="row align-items-center border rounded shadow mb-3">
+                                <div style={{ backgroundColor: '#FAFAFA' }} className="row align-items-center border rounded shadow mt-4 mb-3">
                                     <div className="col-10">
                                         <table className="table table-borderless">
                                             <thead>
                                                 <tr className='text-grey fw__light fs-10'>
-                                                    <th className='pb-0 pt-4' scope="col">unidade</th>
+                                                    <th className='pb-0 pt-4 col-6' scope="col">unidade</th>
                                                     <th className='pb-0 pt-4' scope="col">data</th>
                                                     <th className='pb-0 pt-4' scope="col">mesa</th>
                                                 </tr>
