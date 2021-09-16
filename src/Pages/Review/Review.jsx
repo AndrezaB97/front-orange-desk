@@ -144,7 +144,7 @@ const Review = () => {
                                         </div>
                                     </div>
 
-                                    <button id='btnConfirm' className='btn-orange w-100 mt-3 mb-2' onClick={onSubmit}>Confirmar agendamento</button>
+                                    <button id='btnConfirm' className='btn-orange w-100 mt-3 mt-lg-5 mb-2' onClick={onSubmit}>Confirmar agendamento</button>
                                 </div>
                             </div>
                         </div>
