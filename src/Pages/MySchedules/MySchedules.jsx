@@ -1,12 +1,71 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FiArrowLeftCircle } from 'react-icons/fi';
 import { Link, useHistory } from 'react-router-dom';
 import Logo from './../../Assets/logo-Orange-Desk.svg';
 import { FiXCircle } from 'react-icons/fi';
+import api from './../../services/api';
+import { ToastContainer, toast } from 'react-toastify';
+import moment from 'moment';
 
 const MySchedules = () => {
 
     const history = useHistory();
+    const [reserves, setReserves] = useState([]);
+    const [user, setUser] = useState({});
+
+    var config = {
+        headers: {
+          'Authorization': 'Bearer ' + localStorage.getItem('token')
+        }
+    }
+
+    useEffect(() => {
+        // my_reserves
+        myReserves();
+        authUser();
+
+        console.log(reserves);
+        
+    }, [])
+
+    async function authUser() {
+
+        try {
+            let response = await api.get('/auth', config);
+            setUser(response.data);
+          } catch (err) {
+            toast.error("Erro ao buscar dados do usuário", {
+              position: toast.POSITION.TOP_RIGHT
+            });
+        }
+    }
+
+    async function deleteReserve(reserveId) {
+       // delete_reserve
+       try {
+        await api.delete('/delete_reserve/' + reserveId, config);
+        
+        toast.success("Reserva removida com sucesso");
+
+        myReserves();
+
+      } catch (err) {
+        toast.error("Erro ao remover reserva", {
+          position: toast.POSITION.TOP_RIGHT
+        });
+    }
+    }
+
+    async function myReserves() {
+        try {
+            let response = await api.get('/my_reserves', config);
+            setReserves(response.data);
+          } catch (err) {
+            toast.error("Erro ao buscar reservas", {
+              position: toast.POSITION.TOP_RIGHT
+            });
+        }
+    }
 
     return (
         <React.Fragment>
@@ -24,58 +83,46 @@ const MySchedules = () => {
 
 
                 <div className="container-lg d-flex flex-column col-md-6">
-                    <h5 className='fw__medium'>Olá, Jéssica da Silva!</h5>
+                    <h5 className='fw__medium'>Olá, { user.name }</h5>
                     <p className="fs-12 fw__light text-grey">veja aqui suas reservas no OrangeDesk.</p>
 
-                    <p className='fw__light text-grey'>SÃO PAULO</p>
                     <div className="container-lg fw__bold">
-                        <div style={{ backgroundColor: '#FAFAFA' }} className="row align-items-center border rounded shadow mb-3">
-                            <div className="col-10">
-                                <table className="table table-borderless">
-                                    <thead>
-                                        <tr className='text-grey fw__light fs-10'>
-                                            <th className='pb-0 pt-4' scope="col" colspan='2'>data</th>
-                                            <th className='pb-0 pt-4' scope="col">mesa</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr className='text-blue'>
-                                            <td>15/09/2021</td>
-                                            <td colspan='2'>24</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className="col-2 ps-0 text-center"><FiXCircle cursor='pointer' size='2rem' color='#F20000' /></div>
-                        </div>
 
-                        <div style={{ backgroundColor: '#FAFAFA' }} className="row align-items-center border rounded shadow mb-3">
-                            <div className="col-10">
-                                <table className="table table-borderless">
-                                    <thead>
-                                        <tr className='text-grey fw__light fs-10'>
-                                            <th className='pb-0 pt-4' scope="col" colspan='2'>data</th>
-                                            <th className='pb-0 pt-4' scope="col">mesa</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr className='text-blue'>
-                                            <td>16/09/2021</td>
-                                            <td colspan='2'>30</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div className="col-2 ps-0 text-center"><FiXCircle cursor='pointer' size='2rem' color='#F20000' /></div>
-                        </div>
+                        { reserves.map(element => {
+                            return(
+                                <div style={{ backgroundColor: '#FAFAFA' }} className="row align-items-center border rounded shadow mb-3">
+                                    <div className="col-10">
+                                        <table className="table table-borderless">
+                                            <thead>
+                                                <tr className='text-grey fw__light fs-10'>
+                                                    <th className='pb-0 pt-4' scope="col">unidade</th>
+                                                    <th className='pb-0 pt-4' scope="col">data</th>
+                                                    <th className='pb-0 pt-4' scope="col">mesa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr className='text-blue'>
+                                                    <td>{element?.unity?.address?.city}</td>
+                                                    <td>{ moment(new Date(element.date)).format("DD/MM/YYYY") }</td>
+                                                    <td colspan='2'>{element.desk}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div className="col-2 ps-0 text-center">
+                                        <FiXCircle cursor='pointer' size='2rem' color='#F20000' onClick={ () => { deleteReserve(element.id) }} />
+                                    </div>
+                                </div>
+                            )
+                        }) }
                     </div>
                 </div>
                 <div className="container col-md-6 align-self-center mt-auto mb-3">
-                    <button className='w-100 btn-orange'>Realizar novo agendamento</button>
+                    <button className='w-100 btn-orange' onClick={() => { history.push('/office') }}>Realizar novo agendamento</button>
                 </div>
-
             </div>
 
+            <ToastContainer />
         </React.Fragment>
     )
 }
