@@ -37,9 +37,26 @@ const SelectDesk = () => {
         }
     }, [HandleChange]);
 
+    useEffect(() => {
+        getDesks();        
+    });
+
     const submit = () => {
-        localStorage.setItem('desk', value)
-        history.push("review/");
+        let error = false;
+        
+        desks.forEach(element => {
+            if(value == element) {
+                error = true;
+            }
+        });
+
+        if(error) {
+            toast.warn(`A mesa ${value} já foi reservada :(`);
+        } else {
+            localStorage.setItem('desk', value)
+            history.push("review/");
+        }
+
     }
 
     async function getDesks() {
@@ -47,7 +64,7 @@ const SelectDesk = () => {
           headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('token')
           }
-          }
+        }
 
         var dataDesk = {
             date: localStorage.getItem('date_desk'),
@@ -56,6 +73,7 @@ const SelectDesk = () => {
 
         try {
           const { data } = await api.post(`/desk_available_number/`, dataDesk, config);
+          
           setDesks(data);
 
         } catch (error) {
@@ -63,8 +81,6 @@ const SelectDesk = () => {
               position: toast.POSITION.TOP_RIGHT
           });
         }
-
-        console.log(desks.length);
     }
 
     return (
@@ -94,17 +110,19 @@ const SelectDesk = () => {
                             <div class="accordion accordion-flush mt-3 mb-5" id="accordionFlush">
                                 <div class="accordion-item text-center">
                                     <p class="accordion-header" id="flush-showDesks">
-                                        <button style={accordionHeader} onClick={ getDesks } class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Mostrar mesas disponíveis
+                                        <button style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            Mostrar Mesas Ocupadas
                                         </button>
                                     </p>
                                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-showDesks" data-bs-parent="#accordionFlush">
                                         <div class="accordion-body">
                                             {
-                                                desks?.map(element => {
+                                                desks.map(element => {
                                                     return (element + " | ");
                                                 })
                                             }
+
+                                            { desks.length == 0 ? 'Nenhuma Mesa Ocupada' : '' }
                                         </div>
                                     </div>
                                 </div>
