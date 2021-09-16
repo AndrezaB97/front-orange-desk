@@ -39,7 +39,7 @@ const DeskInstructions = () => {
                         </div>
                         <div className='text-black fw__light mt-1 d-flex flex-column justify-content-md-start align-items-center'>
                             <p className='col-md-8'>E você encontrará sua mesa numerada.</p>
-                            <img src={NumeredDeskImg} className='img-fluid mt-3 col-10' alt="Mesa laranja com objetos de escritório em cima." />
+                            <img src={ NumeredDeskImg } className='img-fluid mt-3 col-10' alt="Mesa laranja com objetos de escritório em cima." />
                         </div>
                     </div>
                     

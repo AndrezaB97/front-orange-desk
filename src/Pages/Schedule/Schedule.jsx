@@ -29,7 +29,7 @@ const Schedule = () => {
         let date = new Date(`${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`);
         localStorage.setItem('date', date);
 
-        history.push("/desks");
+        history.push("/instructions");
     }
 
     const [unity, setUnity] = useState({});
