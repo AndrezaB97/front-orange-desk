@@ -12,8 +12,6 @@ import SelectDesk from './Pages/SelectDesk/SelectDesk';
 import Review from './Pages/Review/Review';
 import Confirmation from './Pages/Confirmation/Confirmation';
 
-// Importing Components:
-
 // ADM pages:
 import Adm from './Pages/Adm/Adm';
 

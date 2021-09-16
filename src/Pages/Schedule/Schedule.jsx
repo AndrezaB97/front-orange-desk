@@ -47,37 +47,38 @@ const Schedule = () => {
           }
         }
         getUnities();
-      }, []);
+        getDesksAvailable(selectedDay);
+    }, []);
+    
+    async function getDesksAvailable(selectedDay) {
+        // desk_available
 
-      async function getDesksAvailable(selectedDay) {
-          // desk_available
+        let selectedDate = `${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`;
 
-          let selectedDate = `${selectedDay.year}-${selectedDay.month}-${selectedDay.day}`;
+        localStorage.setItem('date_desk', selectedDate);
 
-          localStorage.setItem('date_desk', selectedDate);
-
-          var config = {
-            headers: {
-              'Authorization': 'Bearer ' + localStorage.getItem('token')
-            }
-            }
-
-          setSelectedDay(selectedDay);
-
-          var dataDesk = {
-              date: selectedDate,
-              unity_id: localStorage.getItem('unity_id')
-          };
-
-          try {
-            const { data } = await api.post(`/desk_available/`, dataDesk, config);
-            setNumber(data['number']);
-          } catch (error) {
-            toast.error("Erro ao buscar mesas disponíveis", {
-                position: toast.POSITION.TOP_RIGHT
-            });
+        var config = {
+          headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
           }
-      }
+          }
+
+        setSelectedDay(selectedDay);
+
+        var dataDesk = {
+            date: selectedDate,
+            unity_id: localStorage.getItem('unity_id')
+        };
+
+        try {
+          const { data } = await api.post(`/desk_available/`, dataDesk, config);
+          setNumber(data['number']);
+        } catch (error) {
+          toast.error("Erro ao buscar mesas disponíveis", {
+              position: toast.POSITION.TOP_RIGHT
+          });
+        }
+    }
 
 
     return ( 
@@ -109,7 +110,7 @@ const Schedule = () => {
 
                         <div className="g-col-5 align-self-start mt-2 mb-2 w-100">
                             <span className='fw__light text-blue'>
-                                Dia {selectedDay.day < 10 ? `0${selectedDay.day} - ` : selectedDay.day}/{selectedDay.month < 10 ? `0${selectedDay.month} - ` : selectedDay.month}
+                                Dia {selectedDay.day < 10 ? `0${selectedDay.day} - ` : selectedDay.day}/{selectedDay.month < 10 ? `0${selectedDay.month} - ` : `${selectedDay.month} - `}
                             </span>
                             <span className='fw__extra-bold text-blue'>
                                 {deskNumbers} mesas disponíveis
