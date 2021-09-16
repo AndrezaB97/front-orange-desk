@@ -32,7 +32,7 @@ const Login = () => {
 
             localStorage.setItem('token', response.data.token);
 
-            history.push("office/");
+            history.push("/my/schedule");
         } catch (err) {
             toast.error(err.response.data[0].message, {
                 position: toast.POSITION.TOP_RIGHT
