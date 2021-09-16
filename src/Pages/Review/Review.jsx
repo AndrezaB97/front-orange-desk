@@ -127,7 +127,7 @@ const Review = () => {
                             </div>
 
                             <div>
-                            <form className='mt-5'>
+                            <div className='mt-5'>
                                     <div className='container p-0'>
                                         <div className="row align-items-center">
                                             <div className="col-2 text-center">
@@ -145,7 +145,7 @@ const Review = () => {
                                     </div>
 
                                     <button id='btnConfirm' className='btn-orange w-100 mt-3 mb-2' onClick={onSubmit}>Confirmar agendamento</button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
