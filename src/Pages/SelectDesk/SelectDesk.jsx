@@ -101,9 +101,8 @@ const SelectDesk = () => {
 
                         <img className='img-fluid mt-4 ms-auto me-auto col-lg-4' src={ DesksLayoutImg } alt='Imagem ilustrando layout de um escritório FCamara.'/>
 
-                        <form className='col-12' onSubmit={handleSubmit(submit)}>
 
-                            <div className='col-md-4 col-12 mt-md-5 mt-3'>
+                            <form className='col-md-4 col-12 mt-md-5 mt-3' onSubmit={handleSubmit(submit)}>
                                 <h5 className='d-md-block d-none mb-md-3'>Escolha sua estação de trabalho</h5>
 
                                 <input onChange={HandleChange}
@@ -140,7 +139,6 @@ const SelectDesk = () => {
                                 <button disabled id='btnSelectDesk' onClick={ submit } className='btn-orange form-control border-0 shadow-none mb-md-0 mb-3'  >
                                     Escolher estação de trabalho
                                 </button>
-                            </div>
                         </form>
                     </div>
                 </main>

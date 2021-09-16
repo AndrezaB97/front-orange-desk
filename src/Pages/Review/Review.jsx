@@ -42,15 +42,11 @@ const Review = () => {
 
             await api.post('/reserve', data, config);
 
-            
-
-            setTimeout(() => {
-                toast.success("Reserva feita com sucesso!", {
-                    position: toast.POSITION.TOP_RIGHT
-                });
-            }, 5000);
-            
             history.push("/confirmation");
+
+            toast.success("Reserva feita com sucesso!", {
+                position: toast.POSITION.TOP_RIGHT
+            });
         } catch (err) {
             console.log(err.response.data);
             toast.error(err.response.data[0].message, {
