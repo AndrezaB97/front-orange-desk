@@ -110,6 +110,19 @@ html {
   cursor: pointer;
 }
 
+.btn-orange:disabled {
+  color: var(--dark-grey);
+  background-color: var(--grey);
+  border: .1rem solid var(--grey);
+  cursor: not-allowed;
+}
+
+.btn-orange:disabled:hover {
+  background-color: var(--grey);
+  border: .1rem solid var(--grey);
+  color: var(--dark-grey);
+}
+
 .btn-orange:hover {
   color: var(--white);
   background-color: var(--dark-orange);
