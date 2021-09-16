@@ -28,7 +28,7 @@ const Confirmation = () => {
                         <p className='mt-2 text-center text-black fw__light'>Você pode frequentar o escritório no dia selecionado entre às <span className='fw__extra-bold'>8h e 18h</span></p>
                         <p className='mt-2 text-center text-black'>Não esqueça o álcool gel! Até mais :D</p>
 
-                        <Link className="btn-orange fw__extra-bold mt-2 mt-md-4 w-100 col-12 text-center" to='#'>
+                        <Link className="btn-orange fw__extra-bold mt-2 mt-md-4 w-100 col-12 text-center" to='/my/schedule'>
                             Ver meus agendamentos
                         </Link>
                     </div>

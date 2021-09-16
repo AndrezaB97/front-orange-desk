@@ -17,6 +17,7 @@ import Adm from './Pages/Adm/Adm';
 
 // Importing style-sheets:
 import './style/App.css';
+import MySchedules from './Pages/MySchedules/MySchedules';
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
           <Route path='/confirmation' exact component={ Confirmation } />
           <Route path="/adm/criar" exact component={ Adm } />
           <Route path="/adm/home" exact component={ HomeAdm } />
+          <Route path="/adm/home" exact component={ HomeAdm } />
+          <Route path="/my/schedule" exact component={ MySchedules } />
         </Switch>
         
       </Router>
