@@ -42,9 +42,13 @@ const Review = () => {
 
             await api.post('/reserve', data, config);
 
-            toast.success("Reserva feita com sucesso!", {
-                position: toast.POSITION.TOP_RIGHT
-            });
+            
+
+            setTimeout(() => {
+                toast.success("Reserva feita com sucesso!", {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+            }, 5000);
             
             history.push("/confirmation");
         } catch (err) {
@@ -140,7 +144,7 @@ const Review = () => {
                                         </div>
                                     </div>
 
-                                    <button id='btnConfirm' className='btn-orange w-100 mt-3 mb-2'>Confirmar agendamento</button>
+                                    <button id='btnConfirm' className='btn-orange w-100 mt-3 mb-2' onClick={onSubmit}>Confirmar agendamento</button>
                                 </form>
                             </div>
                         </div>
