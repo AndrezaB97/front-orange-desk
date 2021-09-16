@@ -1,6 +1,7 @@
 // Importing modules:
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
+import { useForm } from 'react-hook-form';
 
 // Import components:
 import ConsultorHeader from '../.././Components/ConsultorHeader/ConsultorHeader';
@@ -24,6 +25,8 @@ const SelectDesk = () => {
     const [toggle, setToggle] = useState(false)
     const [value, setValue] = useState('')
     const [desks, setDesks] = useState([])
+
+    const { handleSubmit } = useForm();
     const HandleChange = (e) => setValue(e.target.value)
 
     useEffect(() => {
@@ -98,44 +101,47 @@ const SelectDesk = () => {
 
                         <img className='img-fluid mt-4 ms-auto me-auto col-lg-4' src={ DesksLayoutImg } alt='Imagem ilustrando layout de um escritório FCamara.'/>
 
-                        <div className='col-md-4 col-12 mt-md-5 mt-3'>
-                            <h5 className='d-md-block d-none mb-md-3'>Escolha sua estação de trabalho</h5>
+                        <form className='col-12' onSubmit={handleSubmit(submit)}>
 
-                            <input onChange={HandleChange}
-                                type='number'
-                                style={inputStyle}
-                                className='text-start fw__light form mt-lg-5 form-control shadow-none'
-                                placeholder='Digite o nº da mesa que quer reservar'
-                                min='1'
-                                max='40'
-                                required />
-                            {((value !== '' && Number(value) < 1) || Number(value) > 40) && <span className='text-danger'>O valor deve estar entre 1 e 40</span>}
-                            <div class="accordion accordion-flush mt-3 mb-5" id="accordionFlush">
-                                <div class="accordion-item text-center">
-                                    <p class="accordion-header" id="flush-showDesks">
-                                        <button onClick={getDesks} style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                            {toggle ? <span>Ocultar</span> : <span>Mostrar Mesas Ocupadas</span>}
-                                        {/* <button style={accordionHeader} onClick={ getDesks } class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                            Mostrar mesas disponíveis */}
-                                        </button>
-                                    </p>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-showDesks" data-bs-parent="#accordionFlush">
-                                        <div class="accordion-body">
-                                            {
-                                                desks.map(element => {
-                                                    return (element + " | ");
-                                                })
-                                            }
+                            <div className='col-md-4 col-12 mt-md-5 mt-3'>
+                                <h5 className='d-md-block d-none mb-md-3'>Escolha sua estação de trabalho</h5>
 
-                                            { desks.length == 0 ? 'Nenhuma Mesa Ocupada' : '' }
+                                <input onChange={HandleChange}
+                                    type='number'
+                                    style={inputStyle}
+                                    className='text-start fw__light form mt-lg-5 form-control shadow-none'
+                                    placeholder='Digite o nº da mesa que quer reservar'
+                                    min='1'
+                                    max='40'
+                                    required />
+                                {((value !== '' && Number(value) < 1) || Number(value) > 40) && <span className='text-danger'>O valor deve estar entre 1 e 40</span>}
+                                <div class="accordion accordion-flush mt-3 mb-5" id="accordionFlush">
+                                    <div class="accordion-item text-center">
+                                        <p class="accordion-header" id="flush-showDesks">
+                                            <button onClick={() => {setToggle(!toggle)}} style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                {toggle ? <span>Ocultar</span> : <span>Mostrar Mesas Ocupadas</span>}
+                                            {/* <button style={accordionHeader} onClick={ getDesks } class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                Mostrar mesas disponíveis */}
+                                            </button>
+                                        </p>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-showDesks" data-bs-parent="#accordionFlush">
+                                            <div class="accordion-body">
+                                                {
+                                                    desks.map(element => {
+                                                        return (element + " | ");
+                                                    })
+                                                }
+
+                                                { desks.length == 0 ? 'Nenhuma Mesa Ocupada' : '' }
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <button disabled id='btnSelectDesk' onClick={ submit } className='btn-orange form-control border-0 shadow-none mb-md-0 mb-3'  >
+                                    Escolher estação de trabalho
+                                </button>
                             </div>
-                            <button disabled id='btnSelectDesk' onClick={ submit } className='btn-orange form-control border-0 shadow-none mb-md-0 mb-3'  >
-                                Escolher estação de trabalho
-                            </button>
-                        </div>
+                        </form>
                     </div>
                 </main>
 
