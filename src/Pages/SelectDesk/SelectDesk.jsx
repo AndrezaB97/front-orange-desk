@@ -42,7 +42,7 @@ const SelectDesk = () => {
 
     useEffect(() => {
         getDesks();        
-    });
+    }, []);
 
     const submit = () => {
         let error = false;
@@ -113,8 +113,8 @@ const SelectDesk = () => {
                             <div class="accordion accordion-flush mt-3 mb-5" id="accordionFlush">
                                 <div class="accordion-item text-center">
                                     <p class="accordion-header" id="flush-showDesks">
-                                        <button onClick={() => {setToggle(!toggle)}} onClick={ getDesks } style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                            {toggle ? <span>Ocultar mesas disponíveis</span> : <span>Mostrar mesas disponíveis</span>}
+                                        <button onClick={() => {setToggle(!toggle)}} style={accordionHeader} class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                            {toggle ? <span>Ocultar mesas disponíveis</span> : <span>Mostrar Mesas Ocupadas</span>}
                                         {/* <button style={accordionHeader} onClick={ getDesks } class="collapsed bg-white shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                                             Mostrar mesas disponíveis */}
                                         </button>
