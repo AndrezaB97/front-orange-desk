@@ -22,7 +22,6 @@ const MySchedules = () => {
     }
 
     useEffect(() => {
-        // my_reserves
         myReserves();
         authUser();
 
@@ -105,7 +104,7 @@ const MySchedules = () => {
                                             <tbody>
                                                 <tr className='text-blue'>
                                                     <td>{element?.unity?.address?.city}</td>
-                                                    <td>{ moment((element.date)).format("DD/MM/YYYY") }</td>
+                                                    <td>{ moment(new Date(element.date)).format("YYYY-MM-DD") }</td>
                                                     <td colspan='2'>{element.desk}</td>
                                                 </tr>
                                             </tbody>
