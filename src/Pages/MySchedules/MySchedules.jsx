@@ -104,7 +104,7 @@ const MySchedules = () => {
                                             <tbody>
                                                 <tr className='text-blue'>
                                                     <td>{element?.unity?.address?.city}</td>
-                                                    <td>{ moment((element.date)).format("DD/MM/YYYY") }</td>
+                                                    <td>{ moment((element?.date)).format("DD/MM/YYYY") }</td>
                                                     <td colspan='2'>{element.desk}</td>
                                                 </tr>
                                             </tbody>
